@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FitTrack — Étude de cas · Arnaud Clavier</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Newsreader:ital,opsz,wght@1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --accent:#caff42;--accent-dim:rgba(202,255,66,.12);--accent-border:rgba(202,255,66,.3);
+  --bg:#ffffff;--surface:#f5f4ef;--dark:#0f0f18;--dark-2:#1a1a2e;
+  --ink:#111827;--ink2:#374151;--ink3:#6b7280;--ink4:#9ca3af;
+  --border:#e5e7eb;
+  --f:'Plus Jakarta Sans',sans-serif;--fi:'Newsreader',Georgia,serif;
+  --ease-spring:cubic-bezier(.34,1.56,.64,1);--ease-out:cubic-bezier(.16,1,.3,1);
+  --r:1160px;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--f);cursor:none;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.cd{position:fixed;width:10px;height:10px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:99999;top:0;left:0;transform:translate(-50%,-50%);transition:width .2s var(--ease-spring),height .2s var(--ease-spring),opacity .3s}
+.cr{position:fixed;width:36px;height:36px;border:1.5px solid rgba(202,255,66,.5);border-radius:50%;pointer-events:none;z-index:99998;top:0;left:0;transform:translate(-50%,-50%);transition:width .4s var(--ease-out),height .4s var(--ease-out),background .3s,border-color .3s}
+.cd.h{width:5px;height:5px;opacity:.6}.cr.h{width:52px;height:52px;background:rgba(202,255,66,.07);border-color:var(--accent)}
+.cd.c{background:var(--dark)}.cr.c{width:22px;height:22px}
+.cd.b{width:5px;height:5px;opacity:.4}.cr.b{width:60px;height:60px;background:rgba(202,255,66,.15);border:2px solid var(--accent);box-shadow:0 0 18px rgba(202,255,66,.22)}
+#prog{position:fixed;top:0;left:0;height:2px;background:var(--accent);z-index:9999;width:0;pointer-events:none;transition:width .08s linear}
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes slideDown{from{opacity:0;transform:translateY(-14px)}to{opacity:1;transform:none}}
+.rev{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease-out),transform .8s var(--ease-out)}.rev.on{opacity:1;transform:none}
+.rev.d1{transition-delay:90ms}.rev.d2{transition-delay:180ms}.rev.d3{transition-delay:270ms}.rev.d4{transition-delay:360ms}
+.rev-l{opacity:0;transform:translateX(-36px);transition:opacity .85s var(--ease-out),transform .85s var(--ease-out)}.rev-l.on{opacity:1;transform:none}
+.rev-r{opacity:0;transform:translateX(36px);transition:opacity .85s var(--ease-out),transform .85s var(--ease-out)}.rev-r.on{opacity:1;transform:none}
+.rev-s{opacity:0;transform:scale(.96);transition:opacity .9s var(--ease-out),transform .9s var(--ease-out)}.rev-s.on{opacity:1;transform:scale(1)}
+.revs>*{opacity:0;transform:translateY(18px);transition:opacity .65s var(--ease-out),transform .65s var(--ease-out)}.revs.on>*{opacity:1;transform:none}
+.revs.on>*:nth-child(1){transition-delay:0ms}.revs.on>*:nth-child(2){transition-delay:80ms}
+.revs.on>*:nth-child(3){transition-delay:160ms}.revs.on>*:nth-child(4){transition-delay:240ms}
+.topbar{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 80px;height:60px;background:rgba(255,255,255,.88);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);animation:slideDown .6s var(--ease-out) both}
+.topbar__back{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--ink3);transition:color .2s}.topbar__back:hover{color:var(--ink)}
+.topbar__back span{display:inline-block;transition:transform .3s var(--ease-spring)}.topbar__back:hover span{transform:translateX(-4px)}
+.topbar__label{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--ink4)}
+.topbar__pager{font-size:12px;font-weight:700;color:var(--ink4);letter-spacing:.06em}.topbar__pager strong{color:#6b8a00}
+.hero{max-width:var(--r);margin:0 auto;padding:90px 80px 72px}
+.hero__type{display:inline-flex;align-items:center;gap:9px;margin-bottom:22px;animation:fadeUp .6s var(--ease-out) .1s both}
+.hero__type-cat{font-size:11px;font-weight:700;color:#5a7200;background:rgba(107,138,0,.1);padding:4px 10px;border-radius:4px;letter-spacing:.04em}
+.hero__type-sep{color:rgba(17,24,39,.2);font-size:18px;font-weight:200;line-height:1}
+.hero__type-plat{font-size:12px;font-weight:500;color:var(--ink4);letter-spacing:.01em}
+.hero__title{font-size:104px;font-weight:800;letter-spacing:-3.5px;line-height:.9;color:var(--ink);animation:fadeUp .9s var(--ease-out) .18s both;margin-bottom:30px}
+.hero__tagline{font-size:20px;font-weight:300;line-height:1.6;color:var(--ink2);max-width:620px;animation:fadeUp .7s var(--ease-out) .32s both;letter-spacing:-.01em}
+.meta{max-width:var(--r);margin:0 auto;padding:0 80px 72px;display:grid;grid-template-columns:2fr 1fr 1.4fr 1fr;gap:12px}
+.meta__cell{padding:32px 28px;border:1px solid var(--border);border-radius:18px;position:relative;overflow:hidden;transition:transform .35s var(--ease-out),box-shadow .35s}
+.meta__cell:hover{transform:translateY(-5px);box-shadow:0 20px 48px rgba(17,24,39,.1)}
+.meta__cell:first-child{background:#111827;border-color:transparent}
+.meta__cell:first-child .meta__label{color:rgba(255,255,255,.3)}
+.meta__cell:first-child .meta__val{color:#f4efe9}
+.meta__wm{display:none}
+.meta__label{font-size:9px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;color:var(--ink4);margin-bottom:14px}
+.meta__val{font-size:22px;font-weight:800;color:var(--ink);letter-spacing:-.4px;line-height:1.2}
+.section-tag{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#5a7200;background:rgba(202,255,66,.22);border:1px solid rgba(107,138,0,.25);border-radius:100px;padding:5px 14px}
+.plate-wrap{max-width:var(--r);margin:0 auto 72px;padding:0 80px}
+.plate{width:100%;aspect-ratio:16/9;background:#111827;border-radius:22px;border:1px solid rgba(17,24,39,.1);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;transition:border-color .5s,box-shadow .5s}
+.plate:hover{border-color:rgba(202,255,66,.3);box-shadow:0 40px 90px rgba(17,24,39,.22)}
+.plate::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.03) 1px,transparent 1px);background-size:28px 28px}
+.plate__glow{position:absolute;width:280px;height:280px;border-radius:50%;background:var(--accent);filter:blur(80px);opacity:.05;top:50%;left:50%;transform:translate(-50%,-50%);transition:opacity .6s}.plate:hover .plate__glow{opacity:.14}
+.plate__label{font-family:var(--fi);font-style:italic;font-size:32px;color:rgba(255,255,255,.09);position:relative;z-index:1;user-select:none;transition:color .4s}.plate:hover .plate__label{color:rgba(255,255,255,.2)}
+.context{max-width:860px;margin:0 auto;padding:0 80px 80px;text-align:center}
+.context__text{font-family:var(--fi);font-style:italic;font-size:28px;font-weight:300;line-height:1.58;color:var(--ink2)}
+.context__text strong{color:var(--ink);font-style:normal;font-weight:400}
+.challenge{max-width:var(--r);margin:0 auto;padding:0 80px 80px;display:grid;grid-template-columns:1fr 1fr;gap:60px}
+.challenge__num{font-size:80px;font-weight:900;line-height:.9;letter-spacing:-3px;color:rgba(17,24,39,.07);margin-bottom:18px;transition:color .4s}
+.challenge__col:hover .challenge__num{color:rgba(202,255,66,.55)}
+.challenge__sub{font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#6b8a00;margin-bottom:12px}
+.challenge__h{font-size:22px;font-weight:800;color:var(--ink);margin-bottom:16px;letter-spacing:-.3px;line-height:1.25}
+.challenge__p{font-size:14px;line-height:1.82;color:var(--ink3)}
+.gallery{max-width:var(--r);margin:0 auto;padding:0 80px 80px}
+.gallery__grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.gallery__plate{aspect-ratio:4/3;background:#111827;border-radius:18px;border:1px solid rgba(17,24,39,.1);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;transition:transform .4s var(--ease-out),border-color .4s,box-shadow .4s}
+.gallery__plate:hover{transform:translateY(-8px) scale(1.01);border-color:rgba(202,255,66,.28);box-shadow:0 24px 60px rgba(17,24,39,.22)}
+.gallery__plate::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.04) 1px,transparent 1px);background-size:20px 20px}
+.gallery__label{font-size:12px;font-weight:600;color:rgba(255,255,255,.4);position:relative;z-index:1}
+.features{max-width:var(--r);margin:0 auto;padding:0 80px 80px}
+.features__header{margin-bottom:44px}
+.features__list{display:flex;flex-direction:column}
+.feat{display:grid;grid-template-columns:80px 1fr;gap:24px;padding:36px 0;align-items:start;transition:padding-left .3s var(--ease-out)}
+.feat+.feat{border-top:1px solid var(--border)}
+.feat:hover{padding-left:10px}
+.feat__num{font-size:52px;font-weight:900;color:rgba(17,24,39,.07);line-height:1;letter-spacing:-2px;transition:color .35s}
+.feat:hover .feat__num{color:rgba(202,255,66,.6)}
+.feat__body{padding-top:6px}
+.feat__title{font-size:18px;font-weight:700;color:var(--ink);margin-bottom:8px;letter-spacing:-.2px}
+.feat__desc{font-size:14px;line-height:1.78;color:var(--ink3)}
+.results{max-width:var(--r);margin:0 auto;padding:0 80px 80px}
+.results__header{margin-bottom:40px}
+.results__grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.result{border:1px solid var(--border);border-radius:18px;padding:36px 28px;transition:transform .35s var(--ease-out),box-shadow .35s}
+.result:hover{transform:translateY(-5px);box-shadow:0 20px 48px rgba(17,24,39,.08)}
+.result:first-child{background:#111827;border-color:transparent}
+.result:first-child .result__idx{color:rgba(255,255,255,.3)}
+.result:first-child .result__stat{color:#f4efe9}
+.result:first-child .result__desc{color:rgba(255,255,255,.38)}
+.result:first-child:hover{box-shadow:0 24px 56px rgba(17,24,39,.45)}
+.result__idx{display:block;font-size:9px;font-weight:900;letter-spacing:.14em;color:var(--ink4);text-transform:uppercase;margin-bottom:14px}
+.result__stat{display:block;font-size:64px;font-weight:900;color:var(--ink);letter-spacing:-3px;line-height:1;margin-bottom:12px;transition:color .25s}
+.result:hover .result__stat{color:#6b8a00}
+.result:first-child:hover .result__stat{color:var(--accent)}
+.result__desc{display:block;font-size:13px;font-weight:400;color:var(--ink3);line-height:1.55}
+.stack{max-width:var(--r);margin:0 auto;padding:0 80px 80px;display:grid;grid-template-columns:3fr 2fr;gap:80px;align-items:start}
+.stack__label{font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--ink4);margin-bottom:20px;display:flex;align-items:center;gap:14px}
+.stack__label::after{content:'';flex:1;height:1px;background:var(--border)}
+.stack__tags{display:flex;flex-wrap:wrap;gap:8px}
+.stack__tag{font-size:11px;font-weight:700;color:var(--ink3);background:var(--bg);border:1px solid var(--border);border-radius:100px;padding:7px 14px;transition:background .25s,color .25s,border-color .25s,transform .3s var(--ease-spring)}
+.stack__tag:hover{background:var(--dark);color:#fff;border-color:var(--dark);transform:translateY(-3px)}
+.role-items{display:flex;flex-direction:column;gap:0}
+.role-item{font-size:14px;font-weight:500;color:var(--ink2);display:flex;align-items:flex-start;gap:14px;padding:14px 0;border-bottom:1px solid var(--border)}
+.role-item:first-child{border-top:1px solid var(--border)}
+.role-item::before{content:'';width:6px;height:6px;border-radius:50%;background:#6b8a00;opacity:.8;flex-shrink:0;margin-top:6px}
+.fnav{display:flex;align-items:center;justify-content:space-between;padding:44px 80px;border-top:1px solid var(--border)}
+.fnav__link{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600;color:var(--ink3);padding:12px 18px;border-radius:10px;transition:color .2s,background .2s,gap .3s var(--ease-spring)}
+.fnav__link:hover{color:var(--ink);background:var(--surface)}
+.fnav__link--next{justify-content:flex-end}
+.fnav__link--prev:hover,.fnav__link--next:hover{gap:16px}
+.fnav__sub{display:block;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink4);margin-bottom:2px}
+.fnav__name{display:block;font-size:15px;font-weight:700}
+.fnav__logo{font-size:14px;font-weight:800;color:var(--ink4);display:flex;align-items:center;gap:6px}
+.fnav__logo a{transition:color .2s}.fnav__logo a:hover{color:#6b8a00}
+.fnav__logo-icon{color:var(--dark);background:var(--accent);padding:3px 7px;border-radius:6px;font-size:11px}
+
+@media(max-width:1100px){
+  .meta{grid-template-columns:1fr 1fr;gap:10px}
+  .meta__cell:first-child{grid-column:1/-1}
+  .results__grid{grid-template-columns:1fr 1fr}
+  .stack{grid-template-columns:1fr;gap:40px}
+  .challenge{grid-template-columns:1fr;gap:40px}
+  .gallery__grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  .topbar{padding:0 24px;height:52px}
+  .hero{padding:56px 24px 48px}
+  .hero__title{font-size:72px;letter-spacing:-2.5px}
+  .hero__tagline{font-size:17px}
+  .meta{padding:0 24px 48px;grid-template-columns:1fr 1fr;gap:10px}
+  .meta__cell:first-child{grid-column:1/-1}
+  .meta__val{font-size:18px}
+  .plate-wrap{padding:0 24px}
+  .context{padding:0 24px 56px}
+  .context__text{font-size:22px}
+  .challenge{padding:0 24px 56px;grid-template-columns:1fr;gap:32px}
+  .gallery{padding:0 24px 56px}
+  .gallery__grid{grid-template-columns:1fr;gap:10px}
+  .features{padding:0 24px 56px}
+  .feat{grid-template-columns:56px 1fr;gap:16px;padding:24px 0}
+  .feat__num{font-size:36px}
+  .results{padding:0 24px 56px}
+  .results__grid{grid-template-columns:1fr;gap:10px}
+  .result{padding:28px 20px}
+  .result__stat{font-size:48px;letter-spacing:-2px}
+  .stack{padding:0 24px 56px;grid-template-columns:1fr;gap:36px}
+  .fnav{padding:28px 24px;flex-wrap:wrap;gap:12px}
+  .fnav__logo{display:none}
+}
+@media(max-width:480px){
+  .hero__title{font-size:56px;letter-spacing:-2px}
+  .meta{grid-template-columns:1fr}
+  .meta__cell:first-child{grid-column:auto}
+  .result__stat{font-size:40px}
+}
+</style>
+</head>
+<body>
+<div id="prog"></div>
+<div class="cd" id="cd"></div>
+<div class="cr" id="cr"></div>
+
+<div class="topbar">
+  <a href="index.html#projets" class="topbar__back"><span>←</span> Projets</a>
+  <div class="topbar__label">Étude de cas</div>
+  <div class="topbar__pager"><strong>02</strong> / 03</div>
+</div>
+
+<div class="hero">
+  <div class="hero__type"><span class="hero__type-cat">Mobile</span><span class="hero__type-sep">/</span><span class="hero__type-plat">iOS & Android</span></div>
+  <h1 class="hero__title">Fit<br>Track</h1>
+  <p class="hero__tagline">Un compagnon d'entraînement qui reste utile même sans connexion. Parce que les salles de sport n'ont pas toujours le wifi.</p>
+</div>
+
+<div class="meta revs">
+  <div class="meta__cell"><div class="meta__wm">01</div><div class="meta__label">Rôle</div><div class="meta__val">Mobile developer</div></div>
+  <div class="meta__cell"><div class="meta__wm">02</div><div class="meta__label">Durée</div><div class="meta__val">3 mois</div></div>
+  <div class="meta__cell"><div class="meta__wm">03</div><div class="meta__label">Plateforme</div><div class="meta__val">iOS &amp; Android</div></div>
+  <div class="meta__cell"><div class="meta__wm">04</div><div class="meta__label">Équipe</div><div class="meta__val">Solo</div></div>
+</div>
+
+<div class="plate-wrap rev-s">
+  <div class="plate">
+    <div class="plate__glow"></div>
+    <span class="plate__label">FitTrack — Aperçu produit</span>
+  </div>
+</div>
+
+<div class="context rev-s">
+  <p class="context__text">Les apps de fitness existantes sacrifient l'expérience hors-ligne au profit des fonctionnalités connectées. <strong>FitTrack prouve qu'un design offline-first et une UX fluide ne sont pas incompatibles.</strong></p>
+</div>
+
+<div class="challenge">
+  <div class="challenge__col rev-l">
+    <div class="challenge__num">01</div>
+    <div class="challenge__sub">Le défi</div>
+    <h2 class="challenge__h">Synchronisation fiable sans connexion permanente</h2>
+    <p class="challenge__p">L'utilisateur doit pouvoir enregistrer ses séances, consulter son historique et voir ses statistiques sans réseau, puis synchroniser proprement dès la reconnexion sans perdre la moindre donnée.</p>
+  </div>
+  <div class="challenge__col rev-r">
+    <div class="challenge__num">02</div>
+    <div class="challenge__sub">L'approche</div>
+    <h2 class="challenge__h">Offline-first avec SQLite local et Firebase Sync</h2>
+    <p class="challenge__p">Base locale SQLite avec Riverpod pour la réactivité, stratégie de conflict resolution last-write-wins côté Firebase, sync différentielle pour économiser la batterie.</p>
+  </div>
+</div>
+
+<div class="gallery">
+  <div class="gallery__grid">
+    <div class="gallery__plate rev-l"><span class="gallery__label">◇ Tableau de bord entraînement</span></div>
+    <div class="gallery__plate rev-r"><span class="gallery__label">◇ Suivi de progression</span></div>
+  </div>
+</div>
+
+<div class="features">
+  <div class="features__header rev"><span class="section-tag">Fonctionnalités clés</span></div>
+  <div class="features__list revs">
+    <div class="feat">
+      <div class="feat__num">01</div>
+      <div class="feat__body">
+        <div class="feat__title">Mode hors-ligne complet</div>
+        <div class="feat__desc">Séances, historique et stats disponibles sans connexion. La synchronisation se fait de façon transparente au retour du réseau.</div>
+      </div>
+    </div>
+    <div class="feat">
+      <div class="feat__num">02</div>
+      <div class="feat__body">
+        <div class="feat__title">Séances guidées</div>
+        <div class="feat__desc">Timer intégré, repos configurables, animation de l'exercice et instructions vocales optionnelles pour chaque mouvement.</div>
+      </div>
+    </div>
+    <div class="feat">
+      <div class="feat__num">03</div>
+      <div class="feat__body">
+        <div class="feat__title">Suivi des métriques</div>
+        <div class="feat__desc">Courbes de progression par exercice, volume hebdomadaire, personal records mis en évidence automatiquement.</div>
+      </div>
+    </div>
+    <div class="feat">
+      <div class="feat__num">04</div>
+      <div class="feat__body">
+        <div class="feat__title">Programmes personnalisés</div>
+        <div class="feat__desc">Créateur de programmes drag-and-drop, modèles prédéfinis, import et export JSON pour partager ses programmes.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="results">
+  <div class="results__header rev"><span class="section-tag">Résultats</span></div>
+  <div class="results__grid revs">
+    <div class="result"><span class="result__idx">01</span><div class="result__stat">4.8</div><div class="result__desc">note moyenne des utilisateurs bêta</div></div>
+    <div class="result"><span class="result__idx">02</span><div class="result__stat">0</div><div class="result__desc">perte de données en mode hors-ligne</div></div>
+    <div class="result"><span class="result__idx">03</span><div class="result__stat">60fps</div><div class="result__desc">animations fluides iOS et Android</div></div>
+    <div class="result"><span class="result__idx">04</span><div class="result__stat">-30%</div><div class="result__desc">consommation batterie vs concurrents</div></div>
+  </div>
+</div>
+
+<div class="stack revs">
+  <div>
+    <div class="stack__label">Stack technique</div>
+    <div class="stack__tags">
+      <span class="stack__tag">Flutter 3</span><span class="stack__tag">Dart</span><span class="stack__tag">Riverpod</span>
+      <span class="stack__tag">Firebase</span><span class="stack__tag">SQLite</span><span class="stack__tag">Firestore</span>
+      <span class="stack__tag">GitHub Actions</span>
+    </div>
+  </div>
+  <div>
+    <div class="stack__label">Mon rôle</div>
+    <div class="role-items">
+      <div class="role-item">Architecture offline-first</div>
+      <div class="role-item">Développement Flutter complet</div>
+      <div class="role-item">Tests d'intégration (integration_test)</div>
+      <div class="role-item">Release iOS &amp; Android (Fastlane)</div>
+    </div>
+  </div>
+</div>
+
+<div class="fnav">
+  <a href="case-01.html" class="fnav__link fnav__link--prev">
+    <span><span class="fnav__sub">Projet précédent</span><span class="fnav__name">← GestionStock</span></span>
+  </a>
+  <div class="fnav__logo"><span class="fnav__logo-icon">&lt;/&gt;</span> <a href="index.html">Arnaud Clavier.</a></div>
+  <a href="case-03.html" class="fnav__link fnav__link--next">
+    <span><span class="fnav__sub">Projet suivant</span><span class="fnav__name">Helio →</span></span>
+  </a>
+</div>
+
+<script>
+const cd=document.getElementById('cd'),cr=document.getElementById('cr'),prog=document.getElementById('prog');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cd.style.left=mx+'px';cd.style.top=my+'px';},{passive:true});
+(function l(){rx+=(mx-rx)*.11;ry+=(my-ry)*.11;cr.style.left=rx+'px';cr.style.top=ry+'px';requestAnimationFrame(l);})();
+document.addEventListener('mouseleave',()=>{cd.style.opacity='0';cr.style.opacity='0'});
+document.addEventListener('mouseenter',()=>{cd.style.opacity='1';cr.style.opacity='1'});
+document.querySelectorAll('a,button,.feat,.result,.stack__tag,.meta__cell,.gallery__plate').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cd.classList.add('h');cr.classList.add('h')});
+  el.addEventListener('mouseleave',()=>{cd.classList.remove('h');cr.classList.remove('h')});
+  el.addEventListener('mousedown',()=>{cd.classList.add('c');cr.classList.add('c')});
+  el.addEventListener('mouseup',()=>{cd.classList.remove('c');cr.classList.remove('c')});
+});
+document.querySelectorAll('a,.stack__tag').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cd.classList.add('b');cr.classList.add('b')});
+  el.addEventListener('mouseleave',()=>{cd.classList.remove('b');cr.classList.remove('b')});
+});
+window.addEventListener('scroll',()=>{
+  const h=document.documentElement.scrollHeight-window.innerHeight;
+  prog.style.width=(scrollY/h*100)+'%';
+},{passive:true});
+const ro=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('on');ro.unobserve(x.target);}});},{threshold:.06});
+document.querySelectorAll('.rev,.revs,.rev-l,.rev-r,.rev-s').forEach(el=>ro.observe(el));
+</script>
+</body>
+</html>
