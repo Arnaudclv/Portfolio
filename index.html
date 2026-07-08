@@ -126,6 +126,22 @@ img{display:block;max-width:100%}
 .hero__tech-label{font-size:11px;font-weight:700;color:var(--ink-4);letter-spacing:.06em;text-transform:uppercase;margin-right:4px}
 .hero__tech{font-size:12px;font-weight:600;color:var(--ink-3)}
 .hero__sep{color:var(--ink-4);font-size:10px}
+.methode-soft{margin-top:56px}
+.methode-soft__label{font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-4);margin-bottom:20px;display:flex;align-items:center;gap:14px}
+.methode-soft__label::after{content:'';flex:1;height:1px;background:var(--border)}
+.soft-cloud{display:flex;flex-wrap:wrap;gap:12px 14px}
+.soft-chip{--rot:0deg;display:inline-flex;align-items:center;gap:9px;font-size:13px;font-weight:700;color:var(--ink-2);background:var(--bg);border:1px solid var(--border);border-radius:100px;padding:8px 18px 8px 8px;cursor:default;transform:rotate(var(--rot));transition:transform .35s var(--ease-spring),border-color .25s,box-shadow .25s,color .25s}
+.soft-chip__n{font-size:10px;font-weight:900;color:var(--ink);background:var(--accent);border-radius:100px;width:22px;height:22px;flex-shrink:0;display:inline-flex;align-items:center;justify-content:center}
+.soft-cloud>.soft-chip:nth-child(1){--rot:-2deg}
+.soft-cloud>.soft-chip:nth-child(2){--rot:1.6deg}
+.soft-cloud>.soft-chip:nth-child(3){--rot:-1.2deg}
+.soft-cloud>.soft-chip:nth-child(4){--rot:2deg}
+.soft-cloud>.soft-chip:nth-child(5){--rot:-1.6deg}
+.soft-cloud>.soft-chip:nth-child(6){--rot:2.4deg}
+.soft-chip:hover{transform:translateY(-4px) rotate(0deg) scale(1.05);border-color:var(--accent);box-shadow:0 14px 30px rgba(17,24,39,.12);color:var(--ink)}
+.soft-chip--lang{border-style:dashed;border-color:var(--ink-4)}
+.soft-chip__n--lang{background:var(--ink);color:var(--accent)}
+.soft-chip--lang:hover{border-style:solid}
 
 /* Hero visual */
 .hero__visual{position:relative;animation:fadeRight .9s var(--ease-out) .28s both}
@@ -861,6 +877,17 @@ textarea.cf-input{height:96px;line-height:1.55}
         <div class="methode-desc">Production, mesure, itération continue.</div>
       </div>
     </div>
+    <div class="methode-soft rev d2">
+      <span class="methode-soft__label">Savoir-être</span>
+      <div class="soft-cloud">
+        <span class="soft-chip"><span class="soft-chip__n">01</span>Sens du collectif</span>
+        <span class="soft-chip"><span class="soft-chip__n">02</span>Écoute active</span>
+        <span class="soft-chip"><span class="soft-chip__n">03</span>Adaptabilité</span>
+        <span class="soft-chip"><span class="soft-chip__n">04</span>Curiosité intellectuelle</span>
+        <span class="soft-chip"><span class="soft-chip__n">05</span>Résolution de problèmes</span>
+        <span class="soft-chip soft-chip--lang"><span class="soft-chip__n soft-chip__n--lang">C1</span>Anglais courant</span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -882,6 +909,7 @@ textarea.cf-input{height:96px;line-height:1.55}
           <span class="skb__chip">Angular</span>
           <span class="skb__chip">Vue.js</span>
           <span class="skb__chip">Tailwind CSS</span>
+          <span class="skb__chip">Vite</span>
         </div>
       </div>
 
@@ -891,9 +919,11 @@ textarea.cf-input{height:96px;line-height:1.55}
         <div class="skb__chips">
           <span class="skb__chip">Node.js</span>
           <span class="skb__chip">Express</span>
+          <span class="skb__chip">Socket.IO</span>
           <span class="skb__chip">PHP</span>
           <span class="skb__chip">Symfony</span>
           <span class="skb__chip">Java</span>
+          <span class="skb__chip">Shell</span>
         </div>
       </div>
 
