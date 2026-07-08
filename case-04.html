@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-<title>Remember · Étude de cas · Arnaud Clavier</title>
+<title>Vélos à Nantes · Étude de cas · Arnaud Clavier</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Newsreader:ital,opsz,wght@1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
@@ -48,9 +48,10 @@ a{color:inherit;text-decoration:none}
 .hero__type-cat{font-size:11px;font-weight:700;color:#5a7200;background:rgba(107,138,0,.1);padding:4px 10px;border-radius:4px;letter-spacing:.04em}
 .hero__type-sep{color:rgba(17,24,39,.2);font-size:18px;font-weight:200;line-height:1}
 .hero__type-plat{font-size:12px;font-weight:500;color:var(--ink4);letter-spacing:.01em}
-.hero__title{font-size:104px;font-weight:800;letter-spacing:-3.5px;line-height:.9;color:var(--ink);animation:fadeUp .9s var(--ease-out) .18s both;margin-bottom:30px}
+.hero__title{font-size:104px;font-weight:800;letter-spacing:-3.5px;line-height:.9;color:var(--ink);animation:fadeUp .9s var(--ease-out) .18s both;margin-bottom:30px;white-space:nowrap}
 .hero__title-row{display:flex;align-items:center;flex-wrap:wrap;gap:20px;margin-bottom:30px}
 .hero__title-row .hero__title{margin-bottom:0}
+.hero__title--sm{font-size:76px;letter-spacing:-2.8px}
 .hero__logo-emoji{font-size:64px;line-height:1;flex-shrink:0;animation:fadeUp .9s var(--ease-out) .24s both}
 .hero__tagline{font-size:20px;font-weight:300;line-height:1.6;color:var(--ink2);max-width:620px;animation:fadeUp .7s var(--ease-out) .32s both;letter-spacing:-.01em}
 .meta{max-width:var(--r);margin:0 auto;padding:0 80px 72px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
@@ -65,7 +66,7 @@ a{color:inherit;text-decoration:none}
 .meta__val{font-size:22px;font-weight:800;color:var(--ink);letter-spacing:-.4px;line-height:1.2}
 .section-tag{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#5a7200;background:rgba(202,255,66,.22);border:1px solid rgba(107,138,0,.25);border-radius:100px;padding:5px 14px}
 .plate-wrap{max-width:300px;margin:0 auto 72px;padding:0}
-.plate{width:100%;aspect-ratio:442/876;background:#111827;border-radius:28px;border:1px solid rgba(17,24,39,.1);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;transition:border-color .5s,box-shadow .5s}
+.plate{width:100%;aspect-ratio:457/841;background:#111827;border-radius:28px;border:1px solid rgba(17,24,39,.1);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;transition:border-color .5s,box-shadow .5s}
 .plate:hover{border-color:rgba(202,255,66,.3);box-shadow:0 40px 90px rgba(17,24,39,.22)}
 .plate::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.03) 1px,transparent 1px);background-size:28px 28px}
 .plate__glow{position:absolute;width:280px;height:280px;border-radius:50%;background:var(--accent);filter:blur(80px);opacity:.05;top:50%;left:50%;transform:translate(-50%,-50%);transition:opacity .6s}.plate:hover .plate__glow{opacity:.14}
@@ -82,8 +83,8 @@ a{color:inherit;text-decoration:none}
 .challenge__h{font-size:22px;font-weight:800;color:var(--ink);margin-bottom:16px;letter-spacing:-.3px;line-height:1.25}
 .challenge__p{font-size:14px;line-height:1.82;color:var(--ink3)}
 .gallery{max-width:var(--r);margin:0 auto;padding:0 80px 80px}
-.gallery__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.gallery__plate{aspect-ratio:9/17;background:#111827;border-radius:16px;border:1px solid rgba(17,24,39,.1);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;transition:transform .4s var(--ease-out),border-color .4s,box-shadow .4s}
+.gallery__grid{display:flex;justify-content:center;gap:14px}
+.gallery__plate{width:280px;aspect-ratio:9/17;background:#111827;border-radius:16px;border:1px solid rgba(17,24,39,.1);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;transition:transform .4s var(--ease-out),border-color .4s,box-shadow .4s}
 .gallery__plate:hover{transform:translateY(-8px) scale(1.01);border-color:rgba(202,255,66,.28);box-shadow:0 24px 60px rgba(17,24,39,.22)}
 .gallery__plate::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.04) 1px,transparent 1px);background-size:20px 20px}
 .gallery__label{font-size:12px;font-weight:600;color:rgba(255,255,255,.4);position:relative;z-index:1}
@@ -150,7 +151,6 @@ a{color:inherit;text-decoration:none}
 .fnav__name{display:block;font-size:15px;font-weight:700}
 .fnav__logo{font-size:14px;font-weight:800;color:var(--ink4);display:flex;align-items:center;gap:6px}
 .fnav__logo a{transition:color .2s}.fnav__logo a:hover{color:#6b8a00}
-.fnav__logo-icon{display:inline-flex;align-items:center;background:var(--accent);padding:5px 8px;border-radius:6px}
 .plate,.gallery__plate{cursor:none}
 .lightbox{position:fixed;inset:0;background:rgba(10,10,15,.94);z-index:9998;display:flex;align-items:center;justify-content:center;padding:40px;opacity:0;pointer-events:none;transition:opacity .3s var(--ease-out)}
 .lightbox.on{opacity:1;pointer-events:auto}
@@ -165,6 +165,7 @@ a{color:inherit;text-decoration:none}
 .lightbox__nav--next{right:24px}
 .lightbox__nav--next:hover{transform:translateY(-50%) translateX(4px)}
 .lightbox__count{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);font-size:12px;font-weight:700;color:rgba(255,255,255,.5);letter-spacing:.06em}
+.fnav__logo-icon{display:inline-flex;align-items:center;background:var(--accent);padding:5px 8px;border-radius:6px}
 
 @media(max-width:1100px){
   .meta{grid-template-columns:1fr 1fr;gap:10px}
@@ -180,6 +181,7 @@ a{color:inherit;text-decoration:none}
   .topbar{padding:0 24px;height:52px}
   .hero{padding:56px 24px 48px}
   .hero__title{font-size:72px;letter-spacing:-2.5px}
+  .hero__title--sm{font-size:52px;letter-spacing:-2px}
   .hero__logo-emoji{font-size:44px}
   .hero__tagline{font-size:17px}
   .meta{padding:0 24px 48px;grid-template-columns:1fr 1fr;gap:10px}
@@ -206,7 +208,8 @@ a{color:inherit;text-decoration:none}
   .fnav__logo{display:none}
 }
 @media(max-width:480px){
-  .hero__title{font-size:56px;letter-spacing:-2px}
+  .hero__title{font-size:56px;letter-spacing:-2px;white-space:normal}
+  .hero__title--sm{font-size:38px;letter-spacing:-1.2px}
   .hero__logo-emoji{font-size:34px}
   .meta{grid-template-columns:1fr}
   .meta__cell:first-child{grid-column:auto}
@@ -222,59 +225,53 @@ a{color:inherit;text-decoration:none}
 <div class="topbar">
   <a href="index.html#projets" class="topbar__back"><span>←</span> Projets</a>
   <div class="topbar__label">Étude de cas</div>
-  <div class="topbar__pager"><strong>03</strong> / 06</div>
+  <div class="topbar__pager"><strong>04</strong> / 06</div>
 </div>
 
 <div class="hero">
   <div class="hero__type"><span class="hero__type-cat">Mobile</span><span class="hero__type-sep">/</span><span class="hero__type-plat">Android</span></div>
   <div class="hero__title-row">
-    <h1 class="hero__title">Remember</h1>
-    <span class="hero__logo-emoji" aria-hidden="true">🎗️</span>
+    <h1 class="hero__title hero__title--sm">Vélos à Nantes</h1>
+    <span class="hero__logo-emoji" aria-hidden="true">🚲</span>
   </div>
-  <p class="hero__tagline">Une photo, un texte, un souvenir, enfermés dans une capsule qui ne s'ouvre qu'à la date choisie. Remember transforme l'attente en cadeau.</p>
+  <p class="hero__tagline">Savoir s'il reste un vélo disponible avant de marcher jusqu'à la station. Vélos à Nantes affiche en temps réel la disponibilité de toutes les stations Bicloo sur une carte interactive.</p>
 </div>
 
 <div class="meta revs">
   <div class="meta__cell"><div class="meta__wm">01</div><div class="meta__label">Rôle</div><div class="meta__val">Développeur mobile</div></div>
   <div class="meta__cell"><div class="meta__wm">02</div><div class="meta__label">Statut</div><div class="meta__val">Démo en ligne</div></div>
-  <div class="meta__cell"><div class="meta__wm">03</div><div class="meta__label">Plateforme</div><div class="meta__val">Android · Angular</div></div>
+  <div class="meta__cell"><div class="meta__wm">03</div><div class="meta__label">Plateforme</div><div class="meta__val">Android · Kotlin</div></div>
   <div class="meta__cell"><div class="meta__wm">04</div><div class="meta__label">Équipe</div><div class="meta__val">Projet personnel</div></div>
 </div>
 
 <div class="plate-wrap rev-s">
   <div class="plate">
-    <img src="assets/covers/remember/4.png" alt="Remember, création d'une capsule" loading="lazy">
+    <img src="assets/covers/veloapp/1.png" alt="Vélos à Nantes, liste des stations" loading="lazy">
   </div>
 </div>
 
 <div class="context rev-s">
-  <p class="context__text">Un souvenir qu'on peut ouvrir tout de suite n'a rien de spécial. <strong>Remember mise sur l'attente : la capsule ne s'ouvre qu'au jour dit.</strong></p>
+  <p class="context__text">Arriver à une station vide après dix minutes de marche, c'est le problème que cette app règle avant même de sortir de chez soi. <strong>Toutes les stations Bicloo, en un coup d'œil.</strong></p>
 </div>
 
 <div class="challenge">
   <div class="challenge__col rev-l">
     <div class="challenge__num">01</div>
     <div class="challenge__sub">Le défi</div>
-    <h2 class="challenge__h">Rendre désirable la contrainte de l'attente</h2>
-    <p class="challenge__p">La plupart des applis de partage de souvenirs misent sur l'instantané. Remember fait l'inverse : verrouiller un contenu pendant des semaines, des mois ou des années, sans que l'attente soit perçue comme une frustration mais comme la promesse d'un vrai moment.</p>
+    <h2 class="challenge__h">Des données temps réel fiables, station par station</h2>
+    <p class="challenge__p">La disponibilité des vélos et des places libres change en continu. L'app doit interroger l'API publique de la ville à intervalle régulier, gérer les stations hors service ou les erreurs réseau, et afficher une information qui reste fiable même vieille de quelques secondes.</p>
   </div>
   <div class="challenge__col rev-r">
     <div class="challenge__num">02</div>
     <div class="challenge__sub">L'approche</div>
-    <h2 class="challenge__h">Des capsules verrouillées par date, comme un cadeau</h2>
-    <p class="challenge__p">Chaque capsule combine une photo de couverture (visible en permanence, même fermée) avec un titre, une description et jusqu'à 5 photos additionnelles. Tout le reste du contenu est choisi à la création mais reste caché jusqu'à la date et l'heure d'ouverture fixées, sans exception possible.</p>
+    <h2 class="challenge__h">Carte interactive et géolocalisation en Kotlin natif</h2>
+    <p class="challenge__p">Chaque station Bicloo est positionnée sur une carte interactive avec son statut, rafraîchie automatiquement. La géolocalisation de l'utilisateur permet de repérer en un coup d'œil les stations les plus proches, le tout développé en Kotlin natif pour rester réactif.</p>
   </div>
 </div>
 
 <div class="gallery">
   <div class="gallery__grid">
-    <div class="gallery__plate rev-l"><img src="assets/covers/remember/2.png" alt="Remember, écran d'accueil et création de profil" loading="lazy"></div>
-    <div class="gallery__plate rev-r"><img src="assets/covers/remember/3.png" alt="Remember, liste des capsules, aucune capsule créée" loading="lazy"></div>
-    <div class="gallery__plate rev-l"><img src="assets/covers/remember/4.png" alt="Remember, création d'une capsule" loading="lazy"></div>
-    <div class="gallery__plate rev-r"><img src="assets/covers/remember/5.png" alt="Remember, capsule créée, verrouillée" loading="lazy"></div>
-    <div class="gallery__plate rev-l"><img src="assets/covers/remember/6.png" alt="Remember, capsule fermée, en attente d'ouverture" loading="lazy"></div>
-    <div class="gallery__plate rev-r"><img src="assets/covers/remember/7.png" alt="Remember, écran de profil utilisateur" loading="lazy"></div>
-    <div class="gallery__plate rev-l"><img src="assets/covers/remember/8.png" alt="Remember, capsule ouverte avec ses photos" loading="lazy"></div>
+    <div class="gallery__plate rev-s"><img src="assets/covers/veloapp/2.png" alt="Vélos à Nantes, carte des stations" loading="lazy"></div>
   </div>
 </div>
 
@@ -284,29 +281,29 @@ a{color:inherit;text-decoration:none}
     <div class="feat">
       <div class="feat__num">01</div>
       <div class="feat__body">
-        <div class="feat__title">Photo de couverture toujours visible</div>
-        <div class="feat__desc">Chaque capsule affiche sa photo de couverture en permanence sur la carte, même fermée, pour se rappeler ce qu'elle contient sans en révéler le contenu.</div>
+        <div class="feat__title">Vue liste par station</div>
+        <div class="feat__desc">Chaque station Bicloo affiche son nom, son adresse, un statut vert ou rouge et le nombre de vélos et de places disponibles.</div>
       </div>
     </div>
     <div class="feat">
       <div class="feat__num">02</div>
       <div class="feat__body">
-        <div class="feat__title">Contenu caché jusqu'à l'ouverture</div>
-        <div class="feat__desc">Titre, description et jusqu'à 5 photos additionnelles restent invisibles jusqu'à la date et l'heure choisies, puis s'affichent automatiquement.</div>
+        <div class="feat__title">Carte interactive des stations</div>
+        <div class="feat__desc">Toutes les stations Bicloo de Nantes positionnées sur une carte, pour visualiser en un coup d'œil la répartition du réseau.</div>
       </div>
     </div>
     <div class="feat">
       <div class="feat__num">03</div>
       <div class="feat__body">
-        <div class="feat__title">Statut clair par capsule</div>
-        <div class="feat__desc">Un badge « Fermée », un cadenas et la date de réouverture rappellent en permanence qu'une capsule est verrouillée, sans ambiguïté possible.</div>
+        <div class="feat__title">Géolocalisation</div>
+        <div class="feat__desc">L'utilisateur voit sa position sur la carte et repère instantanément les stations les plus proches de lui.</div>
       </div>
     </div>
     <div class="feat">
       <div class="feat__num">04</div>
       <div class="feat__body">
-        <div class="feat__title">Un cadeau qu'on se fait dans le futur</div>
-        <div class="feat__desc">Créer une capsule aujourd'hui pour la redécouvrir plus tard, comme une lettre scellée qu'on s'envoie à soi-même.</div>
+        <div class="feat__title">Alertes et notifications</div>
+        <div class="feat__desc">Un onglet dédié centralise les notifications liées aux stations suivies, sans avoir à garder l'app ouverte en continu.</div>
       </div>
     </div>
   </div>
@@ -315,9 +312,9 @@ a{color:inherit;text-decoration:none}
 <div class="results">
   <div class="results__header rev"><span class="section-tag">Résultats</span></div>
   <div class="results__grid revs">
-    <div class="result"><span class="result__idx">01</span><div class="result__stat">0</div><div class="result__desc">ouverture anticipée possible, quelle que soit la capsule</div></div>
-    <div class="result"><span class="result__idx">02</span><div class="result__stat">5</div><div class="result__desc">photos additionnelles max, révélées à l'ouverture</div></div>
-    <div class="result"><span class="result__idx">03</span><div class="result__stat">1</div><div class="result__desc">photo de couverture toujours visible, même fermée</div></div>
+    <div class="result"><span class="result__idx">01</span><div class="result__stat">100%</div><div class="result__desc">des stations Bicloo de Nantes couvertes</div></div>
+    <div class="result"><span class="result__idx">02</span><div class="result__stat">Temps réel</div><div class="result__desc">disponibilité vélos et places actualisée en continu</div></div>
+    <div class="result"><span class="result__idx">03</span><div class="result__stat">0</div><div class="result__desc">installation nécessaire pour tester la démo</div></div>
     <div class="result"><span class="result__idx">04</span><div class="result__stat">Android</div><div class="result__desc">plateforme démontrée via Appetize</div></div>
   </div>
 </div>
@@ -326,16 +323,16 @@ a{color:inherit;text-decoration:none}
   <div>
     <div class="stack__label">Stack technique</div>
     <div class="stack__tags">
-      <span class="stack__tag">Angular</span><span class="stack__tag">TypeScript</span>
-      <span class="stack__tag">Android</span>
+      <span class="stack__tag">Kotlin</span><span class="stack__tag">Android</span>
+      <span class="stack__tag">API REST</span><span class="stack__tag">Géolocalisation</span>
     </div>
   </div>
   <div>
     <div class="stack__label">Mon rôle</div>
     <div class="role-items">
-      <div class="role-item">Conception du système de capsules à date de déverrouillage</div>
-      <div class="role-item">Développement de l'interface Angular</div>
-      <div class="role-item">Gestion du compte à rebours et des notifications</div>
+      <div class="role-item">Intégration de l'API temps réel des stations Bicloo</div>
+      <div class="role-item">Développement de la carte interactive et de la géolocalisation</div>
+      <div class="role-item">Développement Android natif en Kotlin</div>
       <div class="role-item">Développement solo du projet</div>
     </div>
   </div>
@@ -346,10 +343,10 @@ a{color:inherit;text-decoration:none}
     <div class="live__glow" aria-hidden="true"></div>
     <div class="live__content">
       <div class="live__status"><span class="live__dot"></span>Démo en ligne</div>
-      <h2 class="live__title">Remember, testable en ligne</h2>
+      <h2 class="live__title">Vélos à Nantes, testable en ligne</h2>
       <p class="live__desc">Une démo Android interactive est disponible sans installation, directement dans le navigateur via Appetize.</p>
     </div>
-    <a href="https://appetize.io/app/b_7h3us3b74zsrd2d2bak26uyruy" target="_blank" rel="noopener noreferrer" class="live__btn">
+    <a href="https://appetize.io/app/b_e3tz2n6zdlfydgztuo5y6hmcei" target="_blank" rel="noopener noreferrer" class="live__btn">
       <span>Lancer la démo</span>
       <span class="live__btn-arrow">↗</span>
     </a>
@@ -357,12 +354,12 @@ a{color:inherit;text-decoration:none}
 </div>
 
 <div class="fnav">
-  <a href="case-02.html" class="fnav__link fnav__link--prev">
-    <span><span class="fnav__sub">Projet précédent</span><span class="fnav__name">← Second Brain</span></span>
+  <a href="case-03.html" class="fnav__link fnav__link--prev">
+    <span><span class="fnav__sub">Projet précédent</span><span class="fnav__name">← Remember</span></span>
   </a>
   <div class="fnav__logo"><span class="fnav__logo-icon"><svg width="13" height="13" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 6 L24 25 L20 25 L17.3 17.5 L14.7 17.5 L12 25 L8 25 Z" fill="#0f0f18"/></svg></span> <a href="index.html">Arnaud Clavier.</a></div>
-  <a href="case-04.html" class="fnav__link fnav__link--next">
-    <span><span class="fnav__sub">Projet suivant</span><span class="fnav__name">Vélos à Nantes →</span></span>
+  <a href="case-05.html" class="fnav__link fnav__link--next">
+    <span><span class="fnav__sub">Projet suivant</span><span class="fnav__name">Whale Tracker →</span></span>
   </a>
 </div>
 

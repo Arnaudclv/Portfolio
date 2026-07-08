@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Études de cas — Arnaud Clavier</title>
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<title>Études de cas · Arnaud Clavier</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Newsreader:ital,opsz,wght@1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
@@ -18,7 +19,7 @@
   --ease-spring:cubic-bezier(.34,1.56,.64,1);--ease-out:cubic-bezier(.16,1,.3,1);
   --r:1240px;
 }
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;overflow-x:hidden}
 body{background:var(--bg);color:var(--ink);font-family:var(--f);cursor:none;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
 
@@ -87,9 +88,14 @@ a{color:inherit;text-decoration:none}
 .proj__num{font-size:11px;font-weight:900;letter-spacing:.1em;color:var(--ink4)}
 .proj__type-cat{font-size:11px;font-weight:700;color:#5a7200;background:rgba(107,138,0,.1);padding:3px 10px;border-radius:4px;letter-spacing:.04em}
 .proj__type-sep{color:rgba(17,24,39,.18);font-size:16px;font-weight:200;line-height:1;padding:0 2px}
-.proj__type-plat{font-size:11px;font-weight:500;color:var(--ink4);letter-spacing:.01em}
+.proj__type-plat{font-size:11px;font-weight:500;color:var(--ink4);letter-spacing:.01em;white-space:nowrap}
 
-.proj__title{font-size:88px;font-weight:800;letter-spacing:-3.5px;line-height:.88;color:var(--ink);margin-bottom:26px}
+.proj__title{font-size:88px;font-weight:800;letter-spacing:-3.5px;line-height:.88;color:var(--ink);white-space:nowrap}
+.proj__title--sm{font-size:58px;letter-spacing:-2.2px}
+.proj__title-row{display:flex;align-items:center;gap:18px;margin-bottom:26px}
+.proj__title-row .proj__title{margin-bottom:0}
+.proj__title-icon{height:48px;width:auto;border-radius:10px;flex-shrink:0}
+.proj__title-emoji{font-size:44px;line-height:1;flex-shrink:0}
 
 .proj__tagline{font-size:15px;line-height:1.8;color:var(--ink3);margin-bottom:40px;max-width:420px;font-weight:400}
 
@@ -117,11 +123,13 @@ a{color:inherit;text-decoration:none}
 .proj__plate:hover .proj__glow{opacity:.18}
 .proj__plate-label{font-family:var(--fi);font-style:italic;font-size:30px;color:rgba(255,255,255,.08);position:relative;z-index:1;user-select:none;transition:color .4s}
 .proj__plate:hover .proj__plate-label{color:rgba(255,255,255,.22)}
+.proj__plate img{max-width:88%;max-height:88%;object-fit:contain;position:relative;z-index:1;border-radius:12px;filter:blur(3px) brightness(.82);transition:filter .4s,transform .5s var(--ease-out)}
+.proj__plate:hover img{filter:blur(1.5px) brightness(.92);transform:scale(1.02)}
 
 /* FOOTER */
 .pg-footer{display:flex;align-items:center;justify-content:space-between;padding:48px 80px;border-top:1px solid var(--border)}
 .pg-footer__logo{font-size:14px;font-weight:800;color:var(--ink4);display:flex;align-items:center;gap:6px}
-.pg-footer__logo-icon{color:var(--dark);background:var(--accent);padding:3px 7px;border-radius:6px;font-size:11px}
+.pg-footer__logo-icon{display:inline-flex;align-items:center;background:var(--accent);padding:5px 8px;border-radius:6px}
 .pg-footer__logo a{transition:color .2s}.pg-footer__logo a:hover{color:var(--dark)}
 .pg-footer__back{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--ink3);transition:color .2s,gap .3s var(--ease-spring)}
 .pg-footer__back:hover{color:var(--ink);gap:12px}
@@ -141,17 +149,22 @@ a{color:inherit;text-decoration:none}
   .proj__inner{grid-template-columns:1fr !important;gap:40px}
   .proj--b .proj__visual{order:0}
   .proj__title{font-size:64px;letter-spacing:-2.5px}
+  .proj__title--sm{font-size:48px;letter-spacing:-1.6px}
   .pg-head__title{font-size:88px;letter-spacing:-4px}
   .pg-head__deco{width:300px;height:300px;right:-80px}
 }
 @media(max-width:768px){
   .topbar{padding:0 24px}
+  .topbar__label{display:none}
+  .topbar__count{display:none}
+  .topbar__cta{padding:6px 12px;font-size:11px}
   .pg-head{padding:56px 24px 48px}
   .pg-head__title{font-size:64px;letter-spacing:-3px}
   .pg-head__deco{width:200px;height:200px;right:-60px}
   .pg-head__sub{font-size:15px}
   .proj{padding:48px 24px 56px}
   .proj__title{font-size:52px;letter-spacing:-2px}
+  .proj__title--sm{font-size:38px;letter-spacing:-1.2px}
   .proj__stat-val{font-size:36px;letter-spacing:-2px}
   .proj__stats{gap:0;padding-bottom:20px;margin-bottom:24px}
   .proj__stat{padding:0 20px 0 0}
@@ -162,14 +175,15 @@ a{color:inherit;text-decoration:none}
 }
 @media(max-width:480px){
   .pg-head__title{font-size:52px;letter-spacing:-2px}
-  .proj__title{font-size:42px}
+  .proj__title{font-size:42px;white-space:normal}
+  .proj__title--sm{font-size:30px;letter-spacing:-.8px}
   .proj__stat-val{font-size:28px;letter-spacing:-1px}
 }
 
 /* ── FILTER SYSTEM ── */
 .filters{padding:36px 80px 44px;border-bottom:1px solid var(--border)}
 .filters__inner{max-width:var(--r);margin:0 auto;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
-.filters__group{display:flex;align-items:center;gap:8px}
+.filters__group{display:flex;align-items:center;flex-wrap:wrap;gap:8px}
 .filters__label{font-size:9px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:var(--ink4);white-space:nowrap}
 .filters__sep{width:1px;height:22px;background:var(--border2);flex-shrink:0}
 .fchip{font-size:12px;font-weight:700;padding:8px 16px;border-radius:100px;background:transparent;border:1.5px solid var(--border);color:var(--ink3);cursor:none;transition:background .2s,border-color .2s,color .2s,transform .3s var(--ease-spring),box-shadow .25s;display:inline-flex;align-items:center;gap:6px;font-family:var(--f);line-height:1}
@@ -193,7 +207,7 @@ a{color:inherit;text-decoration:none}
   <a href="index.html" class="topbar__back"><span>←</span> Portfolio</a>
   <div class="topbar__label">Études de cas</div>
   <div class="topbar__right">
-    <span class="topbar__count"><span class="topbar__count-num">03</span> projets</span>
+    <span class="topbar__count"><span class="topbar__count-num">06</span> projets</span>
     <a href="index.html#contact" class="topbar__cta">Discuter d'un projet →</a>
   </div>
 </div>
@@ -209,7 +223,7 @@ a{color:inherit;text-decoration:none}
       Études
       <em>de cas</em>
     </h1>
-    <p class="pg-head__sub">Du problème à la solution. Trois projets, trois contextes.</p>
+    <p class="pg-head__sub">Du problème à la solution. Six projets, six contextes.</p>
   </div>
   <div class="pg-head__deco"></div>
 </div>
@@ -218,22 +232,24 @@ a{color:inherit;text-decoration:none}
 <div class="filters">
   <div class="filters__inner">
     <div class="filters__group">
-      <button class="fchip fchip--all active" data-filter="all">Tout afficher <span class="fchip__n" id="countVisible">3</span></button>
+      <button class="fchip fchip--all active" data-filter="all">Tout afficher <span class="fchip__n" id="countVisible">6</span></button>
     </div>
     <div class="filters__sep"></div>
     <div class="filters__group">
       <span class="filters__label">Type</span>
-      <button class="fchip" data-filter="type:saas">SaaS</button>
+      <button class="fchip" data-filter="type:web">Web</button>
       <button class="fchip" data-filter="type:mobile">Mobile</button>
-      <button class="fchip" data-filter="type:desktop">Desktop</button>
     </div>
     <div class="filters__sep"></div>
     <div class="filters__group">
       <span class="filters__label">Stack</span>
       <button class="fchip" data-filter="stack:react">React</button>
-      <button class="fchip" data-filter="stack:java">Java</button>
-      <button class="fchip" data-filter="stack:flutter">Flutter</button>
+      <button class="fchip" data-filter="stack:nextjs">Next.js</button>
       <button class="fchip" data-filter="stack:typescript">TypeScript</button>
+      <button class="fchip" data-filter="stack:angular">Angular</button>
+      <button class="fchip" data-filter="stack:kotlin">Kotlin</button>
+      <button class="fchip" data-filter="stack:ethereum">Ethereum</button>
+      <button class="fchip" data-filter="stack:prisma">Prisma</button>
     </div>
     <div class="filters__sep"></div>
     <div class="filters__group">
@@ -246,121 +262,245 @@ a{color:inherit;text-decoration:none}
   </div>
 </div>
 
-<!-- ═══ 01 — GESTIONSTOCK ═══ -->
-<article class="proj proj--a" id="case-01" data-stack="react saas web spring boot postgresql docker websocket java" data-type="saas" data-year="2024">
+<!-- ═══ 01 — CAIRN ═══ -->
+<article class="proj proj--a" id="case-01" data-stack="nextjs react vercel mailerlite opensource" data-type="web" data-year="2026">
   <div class="proj__wm">01</div>
   <div class="proj__inner">
     <div class="proj__content">
-      <div class="proj__top rev"><span class="proj__num">01</span><span class="proj__type-cat">SaaS</span><span class="proj__type-sep">/</span><span class="proj__type-plat">Application web</span></div>
-      <h2 class="proj__title rev d1">Gestion<br>Stock</h2>
-      <p class="proj__tagline rev d2">Un client gérait ses stocks avec trois tableurs Excel. L'enjeu était simple : un seul outil, temps réel, accessible depuis n'importe quel terminal de l'entrepôt.</p>
+      <div class="proj__top rev"><span class="proj__num">01</span><span class="proj__type-cat">Web</span><span class="proj__type-sep">/</span><span class="proj__type-plat">Open source</span></div>
+      <div class="proj__title-row">
+        <h2 class="proj__title rev d1">Cairn</h2>
+        <img class="proj__title-icon" src="assets/covers/cairn/logo.svg" alt="">
+      </div>
+      <p class="proj__tagline rev d2">Un débrief de sortie montagne se raconte à l'apéro, puis disparaît. Cairn en fait une mémoire collective, exploitable par tout le club : FFCAM, FFME, FSGT.</p>
       <div class="proj__stats rev d3 revs">
         <div class="proj__stat">
-          <span class="proj__stat-val">-40%</span>
-          <span class="proj__stat-label">de temps de gestion</span>
+          <span class="proj__stat-val">3</span>
+          <span class="proj__stat-label">fédérations concernées</span>
         </div>
         <div class="proj__stat">
-          <span class="proj__stat-val">&lt;2s</span>
-          <span class="proj__stat-label">de latence opérationnelle</span>
+          <span class="proj__stat-val">100%</span>
+          <span class="proj__stat-label">code open source</span>
         </div>
         <div class="proj__stat">
-          <span class="proj__stat-val">99%</span>
-          <span class="proj__stat-label">de tests couverts</span>
+          <span class="proj__stat-val">24/7</span>
+          <span class="proj__stat-label">en ligne sur Vercel</span>
         </div>
       </div>
       <div class="proj__stack rev">
-        <span class="proj__tag">React 18</span>
-        <span class="proj__tag">Spring Boot</span>
-        <span class="proj__tag">PostgreSQL</span>
-        <span class="proj__tag">Docker</span>
-        <span class="proj__tag">WebSocket</span>
+        <span class="proj__tag">Next.js</span>
+        <span class="proj__tag">React 19</span>
+        <span class="proj__tag">Vercel</span>
+        <span class="proj__tag">MailerLite</span>
       </div>
       <a href="case-01.html" class="proj__cta rev">Voir l'étude de cas <span>→</span></a>
     </div>
     <div class="proj__visual rev-r">
       <div class="proj__plate">
-        <div class="proj__glow"></div>
-        <span class="proj__plate-label">GestionStock</span>
+        <img src="assets/covers/cairn/1.png" alt="Aperçu de Cairn" loading="lazy">
       </div>
     </div>
   </div>
 </article>
 
-<!-- ═══ 02 — FITTRACK ═══ -->
-<article class="proj proj--b" id="case-02" data-stack="flutter mobile ios android firebase sqlite dart riverpod" data-type="mobile" data-year="2024">
+<!-- ═══ 02 — SECOND BRAIN ═══ -->
+<article class="proj proj--b" id="case-02" data-stack="nextjs react tailwind vercel pkm" data-type="web" data-year="2026">
   <div class="proj__wm">02</div>
   <div class="proj__inner">
     <div class="proj__content">
-      <div class="proj__top rev"><span class="proj__num">02</span><span class="proj__type-cat">Mobile</span><span class="proj__type-sep">/</span><span class="proj__type-plat">iOS &amp; Android</span></div>
-      <h2 class="proj__title rev d1">Fit<br>Track</h2>
-      <p class="proj__tagline rev d2">Le vrai défi n'était pas le design de l'app. C'était de s'assurer qu'aucune donnée d'entraînement ne disparaisse, même au fond d'une salle sans réseau.</p>
+      <div class="proj__top rev"><span class="proj__num">02</span><span class="proj__type-cat">Web</span><span class="proj__type-sep">/</span><span class="proj__type-plat">Dashboard personnel</span></div>
+      <div class="proj__title-row">
+        <h2 class="proj__title proj__title--sm rev d1">Second Brain</h2>
+        <img class="proj__title-icon" src="assets/covers/secondbrain/logo.jpg" alt="">
+      </div>
+      <p class="proj__tagline rev d2">Onze applications différentes pour gérer sa vie, c'est onze endroits où une info se perd. Second Brain réunit tâches, sport, nutrition et vie quotidienne dans un seul tableau de bord.</p>
       <div class="proj__stats rev d3 revs">
         <div class="proj__stat">
-          <span class="proj__stat-val">4.8</span>
-          <span class="proj__stat-label">note bêta utilisateurs</span>
+          <span class="proj__stat-val">4</span>
+          <span class="proj__stat-label">univers : Faire, Performer, Savoir, Vivre</span>
         </div>
         <div class="proj__stat">
-          <span class="proj__stat-val">0</span>
-          <span class="proj__stat-label">perte de données offline</span>
+          <span class="proj__stat-val">13</span>
+          <span class="proj__stat-label">modules réunis dans un seul espace</span>
         </div>
         <div class="proj__stat">
-          <span class="proj__stat-val">-30%</span>
-          <span class="proj__stat-label">consommation batterie</span>
+          <span class="proj__stat-val">24/7</span>
+          <span class="proj__stat-label">en ligne sur Vercel</span>
         </div>
       </div>
       <div class="proj__stack rev">
-        <span class="proj__tag">Flutter 3</span>
-        <span class="proj__tag">Dart</span>
-        <span class="proj__tag">Riverpod</span>
-        <span class="proj__tag">Firebase</span>
-        <span class="proj__tag">SQLite</span>
+        <span class="proj__tag">Next.js</span>
+        <span class="proj__tag">React</span>
+        <span class="proj__tag">Tailwind CSS</span>
+        <span class="proj__tag">Vercel</span>
       </div>
       <a href="case-02.html" class="proj__cta rev">Voir l'étude de cas <span>→</span></a>
     </div>
     <div class="proj__visual rev-l">
       <div class="proj__plate">
-        <div class="proj__glow"></div>
-        <span class="proj__plate-label">FitTrack</span>
+        <img src="assets/covers/secondbrain/1.png" alt="Aperçu de Second Brain" loading="lazy">
       </div>
     </div>
   </div>
 </article>
 
-<!-- ═══ 03 — HELIO ═══ -->
-<article class="proj proj--c" id="case-03" data-stack="electron desktop typescript react sqlite vite" data-type="desktop" data-year="2025">
+<!-- ═══ 03 — REMEMBER ═══ -->
+<article class="proj proj--c" id="case-03" data-stack="angular typescript android mobile" data-type="mobile" data-year="2024">
   <div class="proj__wm">03</div>
   <div class="proj__inner">
     <div class="proj__content">
-      <div class="proj__top rev"><span class="proj__num">03</span><span class="proj__type-cat">Desktop</span><span class="proj__type-sep">/</span><span class="proj__type-plat">Electron</span></div>
-      <h2 class="proj__title rev d1">Helio</h2>
-      <p class="proj__tagline rev d2">Chaque nouveau développeur dans l'équipe passait sa première journée à apprendre les scripts de build. Helio a rendu ça inutile.</p>
+      <div class="proj__top rev"><span class="proj__num">03</span><span class="proj__type-cat">Mobile</span><span class="proj__type-sep">/</span><span class="proj__type-plat">Android</span></div>
+      <div class="proj__title-row">
+        <h2 class="proj__title rev d1">Remember</h2>
+        <span class="proj__title-emoji" aria-hidden="true">🎗️</span>
+      </div>
+      <p class="proj__tagline rev d2">Une photo, un texte, un souvenir, enfermés dans une capsule qui ne s'ouvre qu'à la date choisie. Remember transforme l'attente en cadeau.</p>
       <div class="proj__stats rev d3 revs">
         <div class="proj__stat">
-          <span class="proj__stat-val">-60%</span>
-          <span class="proj__stat-label">de temps de config build</span>
-        </div>
-        <div class="proj__stat">
-          <span class="proj__stat-val">3</span>
-          <span class="proj__stat-label">plateformes un seul code</span>
-        </div>
-        <div class="proj__stat">
           <span class="proj__stat-val">0</span>
-          <span class="proj__stat-label">faille en audit sécurité</span>
+          <span class="proj__stat-label">ouverture anticipée possible</span>
+        </div>
+        <div class="proj__stat">
+          <span class="proj__stat-val">5</span>
+          <span class="proj__stat-label">photos additionnelles par capsule</span>
+        </div>
+        <div class="proj__stat">
+          <span class="proj__stat-val">1</span>
+          <span class="proj__stat-label">photo de couverture toujours visible</span>
         </div>
       </div>
       <div class="proj__stack rev">
-        <span class="proj__tag">Electron 28</span>
-        <span class="proj__tag">React</span>
+        <span class="proj__tag">Angular</span>
         <span class="proj__tag">TypeScript</span>
-        <span class="proj__tag">SQLite</span>
-        <span class="proj__tag">Vite</span>
+        <span class="proj__tag">Android</span>
       </div>
       <a href="case-03.html" class="proj__cta rev">Voir l'étude de cas <span>→</span></a>
     </div>
     <div class="proj__visual rev-r">
       <div class="proj__plate">
-        <div class="proj__glow"></div>
-        <span class="proj__plate-label">Helio</span>
+        <img src="assets/covers/remember/4.png" alt="Aperçu de Remember" loading="lazy">
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ═══ 04 — VÉLOS À NANTES ═══ -->
+<article class="proj proj--a" id="case-04" data-stack="kotlin android api rest mobile" data-type="mobile" data-year="2024">
+  <div class="proj__wm">04</div>
+  <div class="proj__inner">
+    <div class="proj__content">
+      <div class="proj__top rev"><span class="proj__num">04</span><span class="proj__type-cat">Mobile</span><span class="proj__type-sep">/</span><span class="proj__type-plat">Android</span></div>
+      <div class="proj__title-row">
+        <h2 class="proj__title proj__title--sm rev d1">Vélos à Nantes</h2>
+        <span class="proj__title-emoji" aria-hidden="true">🚲</span>
+      </div>
+      <p class="proj__tagline rev d2">Savoir s'il reste un vélo disponible avant de marcher jusqu'à la station. Toutes les stations Bicloo de Nantes, en temps réel, sur une carte interactive.</p>
+      <div class="proj__stats rev d3 revs">
+        <div class="proj__stat">
+          <span class="proj__stat-val">100%</span>
+          <span class="proj__stat-label">stations Bicloo couvertes</span>
+        </div>
+        <div class="proj__stat">
+          <span class="proj__stat-val">Temps réel</span>
+          <span class="proj__stat-label">disponibilité vélos et places</span>
+        </div>
+        <div class="proj__stat">
+          <span class="proj__stat-val">0</span>
+          <span class="proj__stat-label">installation pour tester la démo</span>
+        </div>
+      </div>
+      <div class="proj__stack rev">
+        <span class="proj__tag">Kotlin</span>
+        <span class="proj__tag">Android</span>
+        <span class="proj__tag">API REST</span>
+        <span class="proj__tag">Géolocalisation</span>
+      </div>
+      <a href="case-04.html" class="proj__cta rev">Voir l'étude de cas <span>→</span></a>
+    </div>
+    <div class="proj__visual rev-r">
+      <div class="proj__plate">
+        <img src="assets/covers/veloapp/1.png" alt="Aperçu de Vélos à Nantes" loading="lazy">
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ═══ 05 — WHALE TRACKER ═══ -->
+<article class="proj proj--b" id="case-05" data-stack="websocket ethereum web3" data-type="web" data-year="2025">
+  <div class="proj__wm">05</div>
+  <div class="proj__inner">
+    <div class="proj__content">
+      <div class="proj__top rev"><span class="proj__num">05</span><span class="proj__type-cat">Web</span><span class="proj__type-sep">/</span><span class="proj__type-plat">Temps réel</span></div>
+      <div class="proj__title-row">
+        <h2 class="proj__title proj__title--sm rev d1">Whale Tracker</h2>
+        <span class="proj__title-emoji" aria-hidden="true">🐋</span>
+      </div>
+      <p class="proj__tagline rev d2">Un whale qui déplace plusieurs millions de dollars en ETH ne prévient personne. Whale Tracker surveille chaque bloc miné pour ne rien manquer, en direct.</p>
+      <div class="proj__stats rev d3 revs">
+        <div class="proj__stat">
+          <span class="proj__stat-val">3</span>
+          <span class="proj__stat-label">paliers de sévérité automatiques</span>
+        </div>
+        <div class="proj__stat">
+          <span class="proj__stat-val">0</span>
+          <span class="proj__stat-label">latence, poussé en direct par WebSocket</span>
+        </div>
+        <div class="proj__stat">
+          <span class="proj__stat-val">12s</span>
+          <span class="proj__stat-label">fréquence de scan par bloc</span>
+        </div>
+      </div>
+      <div class="proj__stack rev">
+        <span class="proj__tag">WebSocket</span>
+        <span class="proj__tag">Ethereum</span>
+        <span class="proj__tag">Web3</span>
+      </div>
+      <a href="case-05.html" class="proj__cta rev">Voir l'étude de cas <span>→</span></a>
+    </div>
+    <div class="proj__visual rev-l">
+      <div class="proj__plate">
+        <img src="assets/covers/whaletracker/1.png" alt="Aperçu de Whale Tracker" loading="lazy">
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ═══ 06 — NUTRILENS ═══ -->
+<article class="proj proj--c" id="case-06" data-stack="nextjs typescript prisma vercel" data-type="web" data-year="2025">
+  <div class="proj__wm">06</div>
+  <div class="proj__inner">
+    <div class="proj__content">
+      <div class="proj__top rev"><span class="proj__num">06</span><span class="proj__type-cat">Web</span><span class="proj__type-sep">/</span><span class="proj__type-plat">PWA</span></div>
+      <div class="proj__title-row">
+        <h2 class="proj__title rev d1">NutriLens</h2>
+        <img class="proj__title-icon" src="assets/covers/nutrilens/icon-192.png" alt="">
+      </div>
+      <p class="proj__tagline rev d2">Un carnet de musculation qui ne parle pas à l'app de calories, c'est deux suivis qui ne se recoupent jamais. NutriLens les réunit dans un seul journal.</p>
+      <div class="proj__stats rev d3 revs">
+        <div class="proj__stat">
+          <span class="proj__stat-val">2</span>
+          <span class="proj__stat-label">streaks distincts, nutrition et musculation</span>
+        </div>
+        <div class="proj__stat">
+          <span class="proj__stat-val">5</span>
+          <span class="proj__stat-label">aliments détectés en un seul scan</span>
+        </div>
+        <div class="proj__stat">
+          <span class="proj__stat-val">PWA</span>
+          <span class="proj__stat-label">installable, sans passer par un store</span>
+        </div>
+      </div>
+      <div class="proj__stack rev">
+        <span class="proj__tag">Next.js</span>
+        <span class="proj__tag">TypeScript</span>
+        <span class="proj__tag">Prisma</span>
+        <span class="proj__tag">Vercel</span>
+      </div>
+      <a href="case-06.html" class="proj__cta rev">Voir l'étude de cas <span>→</span></a>
+    </div>
+    <div class="proj__visual rev-r">
+      <div class="proj__plate">
+        <img src="assets/covers/nutrilens/2.png" alt="Aperçu de NutriLens" loading="lazy">
       </div>
     </div>
   </div>
@@ -370,7 +510,7 @@ a{color:inherit;text-decoration:none}
 <div class="pg-footer">
   <a href="index.html" class="pg-footer__back"><span>←</span> Retour au portfolio</a>
   <div class="pg-footer__logo">
-    <span class="pg-footer__logo-icon">&lt;/&gt;</span>
+    <span class="pg-footer__logo-icon"><svg width="13" height="13" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 6 L24 25 L20 25 L17.3 17.5 L14.7 17.5 L12 25 L8 25 Z" fill="#0f0f18"/></svg></span>
     <a href="index.html">Arnaud Clavier.</a>
   </div>
   <div></div>
@@ -456,7 +596,7 @@ document.querySelectorAll('.rev,.revs,.rev-l,.rev-r,.rev-s').forEach(el=>ro.obse
       const el=document.createElement('div');
       el.className='filter-empty';
       el.id='filterEmpty';
-      el.innerHTML=`<div class="filter-empty__num">+1</div><div class="filter-empty__title">Projet en cours d'ajout</div><div class="filter-empty__sub">Aucun projet <strong style="color:#5a7200">${labels}</strong> n'est encore publié.<br>Je travaille dessus — revenez bientôt.</div>`;
+      el.innerHTML=`<div class="filter-empty__num">+1</div><div class="filter-empty__title">Projet en cours d'ajout</div><div class="filter-empty__sub">Aucun projet <strong style="color:#5a7200">${labels}</strong> n'est encore publié.<br>Je travaille dessus, revenez bientôt.</div>`;
       document.querySelector('.pg-footer')?.before(el);
     }
     setCount(visible);
