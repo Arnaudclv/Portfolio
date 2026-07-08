@@ -299,13 +299,13 @@ img{display:block;max-width:100%}
 .card__cover{
   position:absolute;inset:-8px;
   background-size:contain;background-position:center;background-repeat:no-repeat;
-  filter:blur(9px) brightness(.5) saturate(1.1);
-  transform:scale(1.1);
+  filter:blur(2px) brightness(.5) saturate(1.1);
+  transform:scale(1.04);
   z-index:-1;pointer-events:none;
   transition:transform .6s var(--ease-out),filter .5s;
 }
-.card:hover .card__cover{transform:scale(1.14);filter:blur(9px) brightness(.44) saturate(1.15)}
-.card__scrim{position:absolute;inset:-8px;z-index:-1;pointer-events:none;background:rgba(8,8,13,.55)}
+.card:hover .card__cover{transform:scale(1.08);filter:blur(2px) brightness(.44) saturate(1.15)}
+.card__scrim{position:absolute;inset:-8px;z-index:-1;pointer-events:none;background:linear-gradient(180deg,rgba(8,8,13,.35) 0%,rgba(8,8,13,.55) 30%,rgba(8,8,13,.7) 60%,rgba(8,8,13,.78) 100%)}
 
 /* Footer commun */
 .card__footer{
@@ -688,33 +688,33 @@ textarea.cf-input{height:96px;line-height:1.55}
     <div class="parcours-grid revs">
       <div class="parcours-step">
         <div class="parcours-node">01</div>
-        <div class="parcours-year">2021</div>
-        <div class="parcours-title">Découverte</div>
-        <div class="parcours-desc">Premières lignes de code, les fondations.</div>
+        <div class="parcours-year">2020</div>
+        <div class="parcours-title">Bachelor</div>
+        <div class="parcours-desc">Ynov Campus, les fondations du développement.</div>
       </div>
       <div class="parcours-step">
         <div class="parcours-node">02</div>
         <div class="parcours-year">2022</div>
-        <div class="parcours-title">Web</div>
-        <div class="parcours-desc">Du HTML statique aux apps React complètes.</div>
+        <div class="parcours-title">Alternance Vigicorp</div>
+        <div class="parcours-desc">PHP, Symfony, premiers projets en production.</div>
       </div>
       <div class="parcours-step">
         <div class="parcours-node">03</div>
         <div class="parcours-year">2023</div>
-        <div class="parcours-title">Mobile</div>
-        <div class="parcours-desc">Flutter, React Native, projets réels.</div>
+        <div class="parcours-title">Master</div>
+        <div class="parcours-desc">Ynov Campus, spécialisation logiciel, mobile &amp; IoT.</div>
       </div>
       <div class="parcours-step">
         <div class="parcours-node">04</div>
         <div class="parcours-year">2024</div>
-        <div class="parcours-title">Fin d'études</div>
-        <div class="parcours-desc">Une vraie app, du besoin à la production.</div>
+        <div class="parcours-title">Alternance Sopra Steria</div>
+        <div class="parcours-desc">Ingénieur dev, migration applicative.</div>
       </div>
       <div class="parcours-step">
         <div class="parcours-node">05</div>
-        <div class="parcours-year">2025</div>
-        <div class="parcours-title">Master</div>
-        <div class="parcours-desc">Logiciel, Web &amp; Mobile, en cours.</div>
+        <div class="parcours-year">2026</div>
+        <div class="parcours-title">Mobem Solutions</div>
+        <div class="parcours-desc">Co-fondateur d'une agence de conception web.</div>
       </div>
     </div>
   </div>
@@ -745,7 +745,7 @@ textarea.cf-input{height:96px;line-height:1.55}
 
       <!-- Cairn — carte vedette, colonne gauche sur toute la hauteur -->
       <article class="card card--feat">
-        <div class="card__cover" style="background-image:url('assets/covers/cairn/1.png')"></div>
+        <div class="card__cover" style="background-image:url('assets/covers/cairn/3.png')"></div>
         <div class="card__scrim"></div>
         <a href="case-01.html" class="card__overlay" aria-label="Voir l'étude de cas Cairn"></a>
         <span class="card__wm">01</span>
@@ -874,44 +874,50 @@ textarea.cf-input{height:96px;line-height:1.55}
 
       <div class="skb skb--feat">
         <span class="skb__cat">Front-end</span>
-        <div class="skb__heading">React &amp;<br>TypeScript</div>
+        <div class="skb__heading">React &amp;<br>Next.js</div>
         <div class="skb__chips">
           <span class="skb__chip">React</span>
-          <span class="skb__chip">TypeScript</span>
           <span class="skb__chip">Next.js</span>
+          <span class="skb__chip">TypeScript</span>
+          <span class="skb__chip">Angular</span>
+          <span class="skb__chip">Vue.js</span>
           <span class="skb__chip">Tailwind CSS</span>
         </div>
       </div>
 
       <div class="skb">
         <span class="skb__cat">Back-end</span>
-        <div class="skb__heading">Spring<br>Boot</div>
+        <div class="skb__heading">Node.js &amp;<br>PHP</div>
         <div class="skb__chips">
-          <span class="skb__chip">Spring Boot</span>
-          <span class="skb__chip">Java</span>
           <span class="skb__chip">Node.js</span>
           <span class="skb__chip">Express</span>
+          <span class="skb__chip">PHP</span>
+          <span class="skb__chip">Symfony</span>
+          <span class="skb__chip">Java</span>
         </div>
       </div>
 
       <div class="skb">
         <span class="skb__cat">Mobile</span>
-        <div class="skb__heading">Flutter</div>
+        <div class="skb__heading">Flutter &amp; Kotlin</div>
         <div class="skb__chips">
           <span class="skb__chip">Flutter</span>
-          <span class="skb__chip">Firebase</span>
           <span class="skb__chip">React Native</span>
+          <span class="skb__chip">Kotlin</span>
         </div>
       </div>
 
       <div class="skb skb--tools">
-        <span class="skb__cat">Outils &amp; DevOps</span>
+        <span class="skb__cat">Outils, DevOps &amp; Données</span>
         <div class="skb__heading">Outils</div>
         <div class="skb__chips">
           <span class="skb__chip">Docker</span>
-          <span class="skb__chip">PostgreSQL</span>
-          <span class="skb__chip">Git</span>
+          <span class="skb__chip">Git / GitHub</span>
           <span class="skb__chip">CI/CD</span>
+          <span class="skb__chip">Vercel</span>
+          <span class="skb__chip">PostgreSQL</span>
+          <span class="skb__chip">MySQL</span>
+          <span class="skb__chip">MongoDB</span>
         </div>
       </div>
 
@@ -920,28 +926,28 @@ textarea.cf-input{height:96px;line-height:1.55}
     <div class="hobbies-block rev">
       <div class="hobbies-left">
         <span class="section-tag" style="margin-bottom:18px">En dehors du code</span>
-        <p class="hobbies-statement">Lecture technique, game dev, running &amp; guitare.</p>
+        <p class="hobbies-statement">Montagne, natation, cinéma &amp; géopolitique.</p>
       </div>
       <div class="hobbies-right">
         <div class="hobby-cards">
-          <button class="hobby-card active" data-desc="Architecture logicielle, design patterns, veille tech. Newsletters spécialisées et livres O'Reilly.">
-            <span class="hobby-card__emoji">📚</span>
-            <span class="hobby-card__name">Lecture tech</span>
+          <button class="hobby-card active" data-desc="Alpinisme et escalade, dès que l'occasion se présente.">
+            <span class="hobby-card__emoji">🏔️</span>
+            <span class="hobby-card__name">Montagne</span>
           </button>
-          <button class="hobby-card" data-desc="Game design, mécanique UX, systèmes de jeu. Je comprends les interfaces gaming de l'intérieur.">
-            <span class="hobby-card__emoji">🎮</span>
-            <span class="hobby-card__name">Game dev</span>
+          <button class="hobby-card" data-desc="La natation pour décompresser et garder un rythme régulier.">
+            <span class="hobby-card__emoji">🏊</span>
+            <span class="hobby-card__name">Natation</span>
           </button>
-          <button class="hobby-card" data-desc="Running et sport pour déconnecter. L'endurance et la rigueur se retrouvent dans l'écriture de code.">
-            <span class="hobby-card__emoji">🏃</span>
-            <span class="hobby-card__name">Running</span>
+          <button class="hobby-card" data-desc="Cinéma, plutôt thriller, en salle ou à la maison.">
+            <span class="hobby-card__emoji">🎬</span>
+            <span class="hobby-card__name">Cinéma</span>
           </button>
-          <button class="hobby-card" data-desc="Guitare acoustique &amp; électrique. La créativité musicale alimente directement la créativité technique.">
-            <span class="hobby-card__emoji">🎸</span>
-            <span class="hobby-card__name">Guitare</span>
+          <button class="hobby-card" data-desc="Vidéos et analyses géopolitique &amp; tech, pour la veille et la culture générale.">
+            <span class="hobby-card__emoji">🌍</span>
+            <span class="hobby-card__name">Géopolitique</span>
           </button>
         </div>
-        <p class="hobby-desc" id="hobbyDesc">Architecture logicielle, design patterns, veille tech. Newsletters spécialisées et livres O'Reilly.</p>
+        <p class="hobby-desc" id="hobbyDesc">Alpinisme et escalade, dès que l'occasion se présente.</p>
       </div>
     </div>
   </div>
