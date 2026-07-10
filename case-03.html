@@ -27,6 +27,8 @@ a{color:inherit;text-decoration:none}
 .cd.h{width:5px;height:5px;opacity:.6}.cr.h{width:52px;height:52px;background:rgba(202,255,66,.07);border-color:var(--accent)}
 .cd.c{background:var(--dark)}.cr.c{width:22px;height:22px}
 .cd.b{width:5px;height:5px;opacity:.4}.cr.b{width:60px;height:60px;background:rgba(202,255,66,.15);border:2px solid var(--accent);box-shadow:0 0 18px rgba(202,255,66,.22)}
+@media (hover:none),(pointer:coarse){.cd,.cr{display:none}}
+.arr-ico{width:1em;height:1em;vertical-align:-.12em;flex-shrink:0}
 #prog{position:fixed;top:0;left:0;height:2px;background:var(--accent);z-index:9999;width:0;pointer-events:none;transition:width .08s linear}
 @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
 @keyframes slideDown{from{opacity:0;transform:translateY(-14px)}to{opacity:1;transform:none}}
@@ -351,7 +353,7 @@ a{color:inherit;text-decoration:none}
     </div>
     <a href="https://appetize.io/app/b_7h3us3b74zsrd2d2bak26uyruy" target="_blank" rel="noopener noreferrer" class="live__btn">
       <span>Lancer la démo</span>
-      <span class="live__btn-arrow">↗</span>
+      <span class="live__btn-arrow"><svg class="arr-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
     </a>
   </div>
 </div>
