@@ -192,6 +192,7 @@ a{color:inherit;text-decoration:none}
 .fchip:hover{border-color:var(--border2);color:var(--ink);transform:translateY(-2px);box-shadow:0 6px 18px rgba(17,24,39,.1)}
 .fchip.active{background:var(--dark);border-color:var(--dark);color:#fff;transform:translateY(-2px);box-shadow:0 10px 28px rgba(17,24,39,.25)}
 .fchip--all.active{background:var(--accent);border-color:var(--accent);color:var(--ink);box-shadow:0 10px 28px rgba(202,255,66,.35)}
+.fchip.active.fchip--skill-hl{background:var(--accent);border-color:var(--accent);color:var(--ink);box-shadow:0 10px 28px rgba(202,255,66,.35)}
 .fchip__n{font-size:9px;font-weight:900;background:rgba(0,0,0,.12);padding:2px 7px;border-radius:100px;min-width:18px;text-align:center}
 .fchip:not(.active) .fchip__n{background:rgba(17,24,39,.08);color:var(--ink4)}
 .filters__reset{font-size:11px;font-weight:700;color:var(--ink4);background:transparent;border:1.5px solid var(--border);cursor:none;padding:7px 14px;border-radius:100px;transition:color .2s,border-color .2s,transform .3s var(--ease-spring);font-family:var(--f);margin-left:auto;display:inline-flex;align-items:center;gap:6px}
@@ -243,7 +244,7 @@ a{color:inherit;text-decoration:none}
       <button class="fchip" data-filter="type:mobile">Mobile</button>
     </div>
     <div class="filters__sep"></div>
-    <div class="filters__group">
+    <div class="filters__group" id="stackFilterGroup">
       <span class="filters__label">Stack</span>
       <button class="fchip" data-filter="stack:react">React</button>
       <button class="fchip" data-filter="stack:nextjs">Next.js</button>
@@ -556,8 +557,16 @@ document.querySelectorAll('.rev,.revs,.rev-l,.rev-r,.rev-s').forEach(el=>ro.obse
     if(topCount) topCount.textContent=String(n).padStart(2,'0');
   }
 
+  function showEmpty(labelText){
+    const el=document.createElement('div');
+    el.className='filter-empty';
+    el.id='filterEmpty';
+    el.innerHTML=`<div class="filter-empty__num">+1</div><div class="filter-empty__title">Projet en cours d'ajout</div><div class="filter-empty__sub">Aucun projet <strong style="color:#5a7200">${labelText}</strong> n'est encore publié.<br>Je travaille dessus, revenez bientôt.</div>`;
+    document.querySelector('.pg-footer')?.before(el);
+  }
+
   function showAll(){
-    chips.forEach(c=>c.classList.remove('active'));
+    chips.forEach(c=>c.classList.remove('active','fchip--skill-hl'));
     allChip?.classList.add('active');
     projs.forEach(p=>p.classList.remove('f-out'));
     document.getElementById('filterEmpty')?.remove();
@@ -585,7 +594,7 @@ document.querySelectorAll('.rev,.revs,.rev-l,.rev-r,.rev-s').forEach(el=>ro.obse
       const pStack=(p.dataset.stack||'').split(' ');
       const match=Object.entries(groups).every(([cat,vals])=>{
         if(cat==='type') return vals.some(v=>p.dataset.type===v);
-        if(cat==='stack') return vals.every(v=>pStack.includes(v));
+        if(cat==='stack') return vals.every(v=>pStack.includes(v)||[...p.querySelectorAll('.proj__tag')].some(t=>t.textContent.toLowerCase().replace(/[^a-z0-9]/g,'')===v));
         if(cat==='year') return vals.some(v=>p.dataset.year===v);
         return false;
       });
@@ -593,20 +602,14 @@ document.querySelectorAll('.rev,.revs,.rev-l,.rev-r,.rev-s').forEach(el=>ro.obse
       if(match) visible++;
     });
 
-    if(!visible){
-      const labels=active.map(c=>c.textContent.trim()).join(' + ');
-      const el=document.createElement('div');
-      el.className='filter-empty';
-      el.id='filterEmpty';
-      el.innerHTML=`<div class="filter-empty__num">+1</div><div class="filter-empty__title">Projet en cours d'ajout</div><div class="filter-empty__sub">Aucun projet <strong style="color:#5a7200">${labels}</strong> n'est encore publié.<br>Je travaille dessus, revenez bientôt.</div>`;
-      document.querySelector('.pg-footer')?.before(el);
-    }
+    if(!visible) showEmpty(active.map(c=>c.textContent.trim()).join(' + '));
     setCount(visible);
   }
 
-  chips.forEach(c=>{
+  function wireChip(c){
     c.addEventListener('click',()=>{
       if(c.dataset.filter==='all'){ showAll(); return; }
+      c.classList.remove('fchip--skill-hl');
       c.classList.toggle('active');
       run();
     });
@@ -614,28 +617,32 @@ document.querySelectorAll('.rev,.revs,.rev-l,.rev-r,.rev-s').forEach(el=>ro.obse
     c.addEventListener('mouseleave',()=>{cd.classList.remove('h');cr.classList.remove('h')});
     c.addEventListener('mousedown',()=>{cd.classList.add('c');cr.classList.add('c')});
     c.addEventListener('mouseup',()=>{cd.classList.remove('c');cr.classList.remove('c')});
-  });
+  }
+  chips.forEach(wireChip);
   if(resetBtn){
     resetBtn.addEventListener('click',showAll);
     resetBtn.addEventListener('mouseenter',()=>{cd.classList.add('b');cr.classList.add('b')});
     resetBtn.addEventListener('mouseleave',()=>{cd.classList.remove('b');cr.classList.remove('b')});
   }
 
-  /* URL skill param */
-  const skill=new URLSearchParams(location.search).get('skill');
-  if(skill){
-    const needle=skill.toLowerCase().trim();
-    const chip=chips.find(c=>c.dataset.filter?.startsWith('stack:')&&needle.includes(c.dataset.filter.split(':')[1]));
+  /* URL skill param — arrivée depuis un lien "?skill=" (ex. chips de compétences de l'accueil) :
+     trouve le chip Stack correspondant, ou le crée à la volée, puis l'active en vert */
+  const skillRaw=new URLSearchParams(location.search).get('skill');
+  if(skillRaw){
+    const slug=skillRaw.toLowerCase().replace(/[^a-z0-9]/g,'');
+    let chip=chips.find(c=>c.dataset.filter===`stack:${slug}`);
+    if(!chip){
+      chip=document.createElement('button');
+      chip.className='fchip';
+      chip.dataset.filter=`stack:${slug}`;
+      chip.textContent=skillRaw;
+      wireChip(chip);
+      document.getElementById('stackFilterGroup')?.appendChild(chip);
+      chips.push(chip);
+    }
     setTimeout(()=>{
-      if(chip){ chip.classList.add('active'); run(); }
-      else{
-        projs.forEach(p=>{
-          const hit=(p.dataset.stack||'').includes(needle)||[...p.querySelectorAll('.proj__tag')].some(t=>t.textContent.toLowerCase().includes(needle));
-          if(!hit) p.classList.add('f-out');
-        });
-        setCount(projs.filter(p=>!p.classList.contains('f-out')).length);
-        if(resetBtn) resetBtn.hidden=false;
-      }
+      chip.classList.add('active','fchip--skill-hl');
+      run();
     },50);
   }
 })();
