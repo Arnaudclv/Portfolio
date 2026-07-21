@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-<title>Mentions légales · Arnaud Clavier</title>
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<title>Privacy Policy · Arnaud Clavier</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Newsreader:ital,opsz,wght@1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
@@ -25,19 +25,6 @@ a{color:inherit;text-decoration:none}
 .nav__back:hover{color:var(--ink);gap:14px}
 .nav__logo{font-size:13px;font-weight:800;color:var(--ink);display:inline-flex;align-items:center}
 .nav__logo em{font-style:normal;display:inline-flex;align-items:center;background:var(--accent);padding:4px 7px;border-radius:6px;margin-left:6px}
-.nav__right{display:flex;align-items:center;gap:18px}
-.nav__lang{font-size:12px;font-weight:700;color:var(--ink3);padding:5px 12px;border:1px solid var(--border);border-radius:100px;transition:color .2s,border-color .2s}
-.nav__lang:hover{color:var(--ink);border-color:var(--ink4)}
-
-/* ── LANG SWITCH ── */
-.lang-banner{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:200;display:flex;align-items:center;gap:16px;background:var(--dark);color:#fff;padding:14px 20px;border-radius:14px;box-shadow:0 12px 32px rgba(0,0,0,.25);max-width:calc(100vw - 48px)}
-.lang-banner[hidden]{display:none}
-.lang-banner p{font-size:13px;font-weight:500;margin:0}
-.lang-banner__actions{display:flex;align-items:center;gap:10px;flex-shrink:0}
-.lang-banner__go{font-size:13px;font-weight:700;color:var(--dark);background:var(--accent);padding:8px 14px;border-radius:100px;white-space:nowrap}
-.lang-banner__close{background:none;border:none;color:#fff;opacity:.6;font-size:18px;line-height:1;cursor:pointer;padding:4px}
-.lang-banner__close:hover{opacity:1}
-@media(max-width:640px){.lang-banner{flex-direction:column;align-items:stretch;text-align:center;left:16px;right:16px;transform:none;bottom:16px}}
 
 .hero-wrap{position:relative;overflow:hidden}
 .hero{max-width:var(--r);margin:0 auto;padding:80px 80px 64px}
@@ -57,13 +44,25 @@ a{color:inherit;text-decoration:none}
 .legal-content h2{font-size:18px;font-weight:800;color:var(--ink);letter-spacing:-.3px;margin-bottom:16px}
 .legal-p{font-size:15px;line-height:1.75;color:var(--ink2);max-width:600px}
 .legal-p+.legal-p{margin-top:10px}
+.legal-p a{color:#5a7200;text-decoration:underline;text-underline-offset:3px}
 
-.info-plate{background:#111827;border-radius:16px;padding:28px;display:grid;grid-template-columns:1fr 1fr;gap:0}
-.info-cell{padding:16px 20px;border-bottom:1px solid rgba(255,255,255,.07)}
-.info-cell:nth-last-child(-n+2){border-bottom:none}
-.info-cell:nth-child(odd){border-right:1px solid rgba(255,255,255,.07)}
-.info-cell__k{font-size:9px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:5px}
-.info-cell__v{font-size:14px;font-weight:600;color:rgba(255,255,255,.88)}
+.data-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.data-card{background:#111827;border-radius:16px;padding:28px 24px;transition:transform .35s var(--ease-out),box-shadow .35s}
+.data-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(17,24,39,.3)}
+.data-card__k{font-size:9px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:10px}
+.data-card__v{font-size:16px;font-weight:700;color:rgba(255,255,255,.88);letter-spacing:-.2px;margin-bottom:6px}
+.data-card__sub{font-size:12px;color:rgba(255,255,255,.35);line-height:1.5}
+
+.rights{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.right-chip{font-size:11px;font-weight:700;color:#5a7200;background:rgba(202,255,66,.18);border:1px solid rgba(107,138,0,.22);border-radius:100px;padding:6px 14px}
+
+.vendor{display:flex;align-items:flex-start;gap:14px;padding:18px 20px;background:var(--surface);border-radius:14px;border:1px solid var(--border)}
+.vendor+.vendor{margin-top:10px}
+.vendor__dot{width:8px;height:8px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:5px}
+.vendor__name{font-size:13px;font-weight:800;color:var(--ink);margin-bottom:4px}
+.vendor__desc{font-size:13px;color:var(--ink3);line-height:1.55}
+.vendor__link{color:#5a7200;text-decoration:underline;text-underline-offset:3px;font-size:12px}
+.arr-ico{width:1em;height:1em;vertical-align:-.12em;flex-shrink:0}
 
 .footer{background:var(--dark);padding:28px 80px;display:flex;justify-content:space-between;align-items:center}
 .footer__copy{font-size:12px;color:rgba(255,255,255,.3)}
@@ -71,16 +70,27 @@ a{color:inherit;text-decoration:none}
 .footer__link{font-size:12px;color:rgba(255,255,255,.3);transition:color .2s}
 .footer__link:hover{color:rgba(255,255,255,.7)}
 
+.nav__right{display:flex;align-items:center;gap:18px}
+.nav__lang{font-size:12px;font-weight:700;color:var(--ink3);padding:5px 12px;border:1px solid var(--border);border-radius:100px;transition:color .2s,border-color .2s}
+.nav__lang:hover{color:var(--ink);border-color:var(--ink4)}
+
+/* ── LANG SWITCH ── */
+.lang-banner{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:200;display:flex;align-items:center;gap:16px;background:var(--dark);color:#fff;padding:14px 20px;border-radius:14px;box-shadow:0 12px 32px rgba(0,0,0,.25);max-width:calc(100vw - 48px)}
+.lang-banner[hidden]{display:none}
+.lang-banner p{font-size:13px;font-weight:500;margin:0}
+.lang-banner__actions{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.lang-banner__go{font-size:13px;font-weight:700;color:var(--dark);background:var(--accent);padding:8px 14px;border-radius:100px;white-space:nowrap}
+.lang-banner__close{background:none;border:none;color:#fff;opacity:.6;font-size:18px;line-height:1;cursor:pointer;padding:4px}
+.lang-banner__close:hover{opacity:1}
+@media(max-width:640px){.lang-banner{flex-direction:column;align-items:stretch;text-align:center;left:16px;right:16px;transform:none;bottom:16px}}
+
 @media(max-width:768px){
   .nav{padding:0 24px}
   .hero{padding:48px 24px 40px}
   .hero__title{font-size:52px;letter-spacing:-2px}
   .hero__deco{width:180px;height:180px;right:-50px}
   .body{padding:0 24px 64px}
-  .info-plate{grid-template-columns:1fr}
-  .info-cell:nth-child(odd){border-right:none}
-  .info-cell:nth-last-child(-n+2){border-bottom:1px solid rgba(255,255,255,.07)}
-  .info-cell:last-child{border-bottom:none}
+  .data-grid{grid-template-columns:1fr}
   .footer{padding:24px;flex-direction:column;gap:12px;text-align:center}
 }
 </style>
@@ -88,9 +98,9 @@ a{color:inherit;text-decoration:none}
 <body>
 
 <nav class="nav">
-  <a href="index.html" class="nav__back">← Retour</a>
+  <a href="index.html" class="nav__back">← Back</a>
   <div class="nav__right">
-    <a href="en/mentions-legales.html" class="nav__lang">EN</a>
+    <a href="../confidentialite.html" class="nav__lang">FR</a>
     <span class="nav__logo">Arnaud Clavier<em><svg width="12" height="12" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 6 L24 25 L20 25 L17.3 17.5 L14.7 17.5 L12 25 L8 25 Z" fill="#0f0f18"/></svg></em></span>
   </div>
 </nav>
@@ -98,8 +108,8 @@ a{color:inherit;text-decoration:none}
 <div class="hero-wrap">
   <div class="hero">
     <div class="hero__left">
-      <div class="hbadge"><span class="hbadge__a">Légal</span><span class="hbadge__b">Mentions · 2026</span></div>
-      <h1 class="hero__title">Mentions<em>légales.</em></h1>
+      <div class="hbadge"><span class="hbadge__a">GDPR</span><span class="hbadge__b">Privacy · 2026</span></div>
+      <h1 class="hero__title">Privacy<em>policy.</em></h1>
     </div>
   </div>
   <div class="hero__deco"></div>
@@ -110,12 +120,18 @@ a{color:inherit;text-decoration:none}
   <div class="legal-row">
     <div class="legal-dot"></div>
     <div class="legal-content">
-      <h2>Éditeur</h2>
-      <div class="info-plate">
-        <div class="info-cell"><div class="info-cell__k">Nom</div><div class="info-cell__v">Arnaud Clavier</div></div>
-        <div class="info-cell"><div class="info-cell__k">Statut</div><div class="info-cell__v">Développeur indépendant</div></div>
-        <div class="info-cell"><div class="info-cell__k">Contact</div><div class="info-cell__v">arnaud.clvpro@gmail.com</div></div>
-        <div class="info-cell"><div class="info-cell__k">Pays</div><div class="info-cell__v">France</div></div>
+      <h2>What is collected</h2>
+      <div class="data-grid">
+        <div class="data-card">
+          <div class="data-card__k">Via the form</div>
+          <div class="data-card__v">Name · Email · Message</div>
+          <div class="data-card__sub">Only if you submit the contact form. Used to reply to your request.</div>
+        </div>
+        <div class="data-card">
+          <div class="data-card__k">Automatically</div>
+          <div class="data-card__v">Nothing.</div>
+          <div class="data-card__sub">No cookies, no trackers, no browsing analytics.</div>
+        </div>
       </div>
     </div>
   </div>
@@ -123,25 +139,36 @@ a{color:inherit;text-decoration:none}
   <div class="legal-row">
     <div class="legal-dot"></div>
     <div class="legal-content">
-      <h2>Hébergement</h2>
-      <p class="legal-p">Site statique sans base de données ni serveur applicatif. Aucune donnée collectée côté serveur par l'éditeur.</p>
+      <h2>Third-party providers</h2>
+      <div class="vendor">
+        <div class="vendor__dot"></div>
+        <div>
+          <div class="vendor__name">Resend</div>
+          <div class="vendor__desc">Delivers messages from the contact form. Data (name, email, message) passes through Resend's servers for sending. <a href="https://resend.com/legal/privacy-policy" target="_blank" rel="noopener" class="vendor__link">Resend policy <svg class="arr-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a></div>
+        </div>
+      </div>
+      <div class="vendor">
+        <div class="vendor__dot"></div>
+        <div>
+          <div class="vendor__name">Google Fonts</div>
+          <div class="vendor__desc">Loads the site's fonts. Connects to Google's servers. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" class="vendor__link">Google policy <svg class="arr-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a></div>
+        </div>
+      </div>
     </div>
   </div>
 
   <div class="legal-row">
     <div class="legal-dot"></div>
     <div class="legal-content">
-      <h2>Propriété intellectuelle</h2>
-      <p class="legal-p">Contenu, code et structure : propriété exclusive d'Arnaud Clavier sauf mention contraire. Reproduction interdite sans accord préalable écrit.</p>
-      <p class="legal-p">Les marques tierces (React, Flutter, etc.) appartiennent à leurs propriétaires respectifs.</p>
-    </div>
-  </div>
-
-  <div class="legal-row">
-    <div class="legal-dot"></div>
-    <div class="legal-content">
-      <h2>Droit applicable</h2>
-      <p class="legal-p">Droit français. Juridiction compétente : tribunaux français.</p>
+      <h2>Your rights</h2>
+      <div class="rights">
+        <span class="right-chip">Access</span>
+        <span class="right-chip">Rectification</span>
+        <span class="right-chip">Erasure</span>
+        <span class="right-chip">Objection</span>
+        <span class="right-chip">Portability</span>
+      </div>
+      <p class="legal-p">Contact: <a href="mailto:arnaud.clvpro@gmail.com">arnaud.clvpro@gmail.com</a> · Complaints can be filed with the <a href="https://www.cnil.fr" target="_blank" rel="noopener">CNIL</a> (French Data Protection Authority).</p>
     </div>
   </div>
 
@@ -150,8 +177,8 @@ a{color:inherit;text-decoration:none}
 <footer class="footer">
   <span class="footer__copy">© 2026 Arnaud Clavier</span>
   <div class="footer__links">
-    <a href="mentions-legales.html" class="footer__link">Mentions légales</a>
-    <a href="confidentialite.html" class="footer__link">Politique de confidentialité</a>
+    <a href="mentions-legales.html" class="footer__link">Legal Notice</a>
+    <a href="confidentialite.html" class="footer__link">Privacy Policy</a>
   </div>
 </footer>
 
@@ -160,7 +187,7 @@ a{color:inherit;text-decoration:none}
   <p id="langBannerText"></p>
   <div class="lang-banner__actions">
     <a href="#" id="langBannerGo" class="lang-banner__go"></a>
-    <button type="button" id="langBannerClose" class="lang-banner__close" aria-label="Fermer">×</button>
+    <button type="button" id="langBannerClose" class="lang-banner__close" aria-label="Close">×</button>
   </div>
 </div>
 

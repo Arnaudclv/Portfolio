@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-<title>Whale Tracker · Étude de cas · Arnaud Clavier</title>
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<title>Vélos à Nantes · Case Study · Arnaud Clavier</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Newsreader:ital,opsz,wght@1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
@@ -67,8 +67,8 @@ a{color:inherit;text-decoration:none}
 .meta__label{font-size:9px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;color:var(--ink4);margin-bottom:14px}
 .meta__val{font-size:22px;font-weight:800;color:var(--ink);letter-spacing:-.4px;line-height:1.2}
 .section-tag{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#5a7200;background:rgba(202,255,66,.22);border:1px solid rgba(107,138,0,.25);border-radius:100px;padding:5px 14px}
-.plate-wrap{max-width:var(--r);margin:0 auto 72px;padding:0 80px}
-.plate{width:100%;aspect-ratio:1370/897;background:#111827;border-radius:22px;border:1px solid rgba(17,24,39,.1);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;transition:border-color .5s,box-shadow .5s}
+.plate-wrap{max-width:300px;margin:0 auto 72px;padding:0}
+.plate{width:100%;aspect-ratio:457/841;background:#111827;border-radius:28px;border:1px solid rgba(17,24,39,.1);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;transition:border-color .5s,box-shadow .5s}
 .plate:hover{border-color:rgba(202,255,66,.3);box-shadow:0 40px 90px rgba(17,24,39,.22)}
 .plate::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.03) 1px,transparent 1px);background-size:28px 28px}
 .plate__glow{position:absolute;width:280px;height:280px;border-radius:50%;background:var(--accent);filter:blur(80px);opacity:.05;top:50%;left:50%;transform:translate(-50%,-50%);transition:opacity .6s}.plate:hover .plate__glow{opacity:.14}
@@ -85,8 +85,8 @@ a{color:inherit;text-decoration:none}
 .challenge__h{font-size:22px;font-weight:800;color:var(--ink);margin-bottom:16px;letter-spacing:-.3px;line-height:1.25}
 .challenge__p{font-size:14px;line-height:1.82;color:var(--ink3)}
 .gallery{max-width:var(--r);margin:0 auto;padding:0 80px 80px}
-.gallery__grid{display:flex;justify-content:center}
-.gallery__plate{width:100%;max-width:820px;aspect-ratio:1817/922;background:#111827;border-radius:18px;border:1px solid rgba(17,24,39,.1);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;transition:transform .4s var(--ease-out),border-color .4s,box-shadow .4s}
+.gallery__grid{display:flex;justify-content:center;gap:14px}
+.gallery__plate{width:280px;aspect-ratio:9/17;background:#111827;border-radius:16px;border:1px solid rgba(17,24,39,.1);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;transition:transform .4s var(--ease-out),border-color .4s,box-shadow .4s}
 .gallery__plate:hover{transform:translateY(-8px) scale(1.01);border-color:rgba(202,255,66,.28);box-shadow:0 24px 60px rgba(17,24,39,.22)}
 .gallery__plate::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.04) 1px,transparent 1px);background-size:20px 20px}
 .gallery__label{font-size:12px;font-weight:600;color:rgba(255,255,255,.4);position:relative;z-index:1}
@@ -175,6 +175,7 @@ a{color:inherit;text-decoration:none}
   .results__grid{grid-template-columns:1fr 1fr}
   .stack{grid-template-columns:1fr;gap:40px}
   .challenge{grid-template-columns:1fr;gap:40px}
+  .gallery__grid{grid-template-columns:1fr 1fr}
   .live__card{flex-direction:column;align-items:flex-start;padding:48px}
   .live__btn{width:100%;justify-content:center}
 }
@@ -236,121 +237,120 @@ a{color:inherit;text-decoration:none}
 <div class="cr" id="cr"></div>
 
 <div class="topbar">
-  <a href="index.html#projets" class="topbar__back"><span>←</span> Projets</a>
-  <div class="topbar__label">Étude de cas</div>
+  <a href="index.html#projets" class="topbar__back"><span>←</span> Projects</a>
+  <div class="topbar__label">Case study</div>
   <div class="topbar__right">
-    <div class="topbar__pager"><strong>05</strong> / 06</div>
-    <a href="en/case-05.html" class="topbar__lang">EN</a>
+    <div class="topbar__pager"><strong>04</strong> / 06</div>
+    <a href="../case-04.html" class="topbar__lang">FR</a>
   </div>
 </div>
 
 <div class="hero">
-  <div class="hero__type"><span class="hero__type-cat">Web</span><span class="hero__type-sep">/</span><span class="hero__type-plat">Temps réel</span></div>
+  <div class="hero__type"><span class="hero__type-cat">Mobile</span><span class="hero__type-sep">/</span><span class="hero__type-plat">Android</span></div>
   <div class="hero__title-row">
-    <h1 class="hero__title hero__title--sm">Whale Tracker</h1>
-    <span class="hero__logo-emoji" aria-hidden="true">🐋</span>
+    <h1 class="hero__title hero__title--sm">Vélos à Nantes</h1>
+    <span class="hero__logo-emoji" aria-hidden="true">🚲</span>
   </div>
-  <p class="hero__tagline">Un whale qui déplace plusieurs millions de dollars en ETH ne prévient personne. Whale Tracker surveille chaque bloc miné pour ne rien manquer, en direct.</p>
+  <p class="hero__tagline">Knowing whether a bike is still available before walking to the station. Vélos à Nantes shows the real-time availability of every Bicloo station on an interactive map.</p>
 </div>
 
 <div class="meta revs">
-  <div class="meta__cell"><div class="meta__wm">01</div><div class="meta__label">Rôle</div><div class="meta__val">Développeur fullstack</div></div>
-  <div class="meta__cell"><div class="meta__wm">02</div><div class="meta__label">Statut</div><div class="meta__val">En ligne</div></div>
-  <div class="meta__cell"><div class="meta__wm">03</div><div class="meta__label">Plateforme</div><div class="meta__val">Web · Ethereum</div></div>
-  <div class="meta__cell"><div class="meta__wm">04</div><div class="meta__label">Équipe</div><div class="meta__val">Solo</div></div>
+  <div class="meta__cell"><div class="meta__wm">01</div><div class="meta__label">Role</div><div class="meta__val">Mobile developer</div></div>
+  <div class="meta__cell"><div class="meta__wm">02</div><div class="meta__label">Status</div><div class="meta__val">Live demo</div></div>
+  <div class="meta__cell"><div class="meta__wm">03</div><div class="meta__label">Platform</div><div class="meta__val">Android · Kotlin</div></div>
+  <div class="meta__cell"><div class="meta__wm">04</div><div class="meta__label">Team</div><div class="meta__val">Personal project</div></div>
 </div>
 
 <div class="plate-wrap rev-s">
   <div class="plate">
-    <img src="assets/covers/whaletracker/1.png" alt="Dashboard de Whale Tracker" loading="lazy">
+    <img src="../assets/covers/veloapp/1.png" alt="Vélos à Nantes, station list" loading="lazy">
   </div>
 </div>
 
 <div class="context rev-s">
-  <p class="context__text">La blockchain ne s'arrête jamais et ne prévient jamais non plus. <strong>Whale Tracker regarde chaque bloc pour repérer les mouvements qui comptent.</strong></p>
+  <p class="context__text">Reaching an empty station after a ten-minute walk is the problem this app solves before you even leave the house. <strong>Every Bicloo station, at a glance.</strong></p>
 </div>
 
 <div class="challenge">
   <div class="challenge__col rev-l">
     <div class="challenge__num">01</div>
-    <div class="challenge__sub">Le défi</div>
-    <h2 class="challenge__h">Détecter l'anormal dans un flux continu</h2>
-    <p class="challenge__p">La blockchain Ethereum produit un nouveau bloc toutes les 12 secondes, avec des centaines de transactions à chaque fois. Repérer les mouvements de fonds significatifs au milieu de ce bruit, sans latence et sans surcharger le client, demande une architecture pensée pour le direct plutôt que pour l'interrogation périodique.</p>
+    <div class="challenge__sub">The challenge</div>
+    <h2 class="challenge__h">Reliable real-time data, station by station</h2>
+    <p class="challenge__p">Bike and free-dock availability changes constantly. The app has to poll the city's public API at regular intervals, handle stations that are out of service or network errors, and display information that stays trustworthy even a few seconds old.</p>
   </div>
   <div class="challenge__col rev-r">
     <div class="challenge__num">02</div>
-    <div class="challenge__sub">L'approche</div>
-    <h2 class="challenge__h">Un flux WebSocket plutôt qu'un rafraîchissement périodique</h2>
-    <p class="challenge__p">Chaque nouveau bloc miné est scanné dès sa confirmation. Les transferts qui dépassent le seuil ETH configuré sont poussés instantanément à tous les clients connectés via WebSocket, sans polling ni rechargement de page.</p>
+    <div class="challenge__sub">The approach</div>
+    <h2 class="challenge__h">Interactive map and geolocation in native Kotlin</h2>
+    <p class="challenge__p">Every Bicloo station is placed on an interactive map with its status, refreshed automatically. User geolocation makes it possible to spot the nearest stations at a glance, all built in native Kotlin to stay responsive.</p>
   </div>
 </div>
 
 <div class="gallery">
   <div class="gallery__grid">
-    <div class="gallery__plate rev-s"><img src="assets/covers/whaletracker/2.png" alt="Vérification d'une transaction sur Etherscan" loading="lazy"></div>
+    <div class="gallery__plate rev-s"><img src="../assets/covers/veloapp/2.png" alt="Vélos à Nantes, station map" loading="lazy"></div>
   </div>
 </div>
 
 <div class="features">
-  <div class="features__header rev"><span class="section-tag">Fonctionnalités clés</span></div>
+  <div class="features__header rev"><span class="section-tag">Key features</span></div>
   <div class="features__list revs">
     <div class="feat">
       <div class="feat__num">01</div>
       <div class="feat__body">
-        <div class="feat__title">Flux temps réel par WebSocket</div>
-        <div class="feat__desc">Chaque transaction détectée apparaît instantanément dans le fil, sans rafraîchissement ni interrogation périodique du serveur.</div>
+        <div class="feat__title">List view by station</div>
+        <div class="feat__desc">Each Bicloo station shows its name, address, a green or red status, and the number of bikes and free docks available.</div>
       </div>
     </div>
     <div class="feat">
       <div class="feat__num">02</div>
       <div class="feat__body">
-        <div class="feat__title">Classification par sévérité</div>
-        <div class="feat__desc">Trois paliers automatiques selon la valeur en dollars : Whale (250k$ et plus), Big whale (1M$ et plus), Mega whale (10M$ et plus).</div>
+        <div class="feat__title">Interactive station map</div>
+        <div class="feat__desc">Every Bicloo station in Nantes placed on a map, to visualize the network's coverage at a glance.</div>
       </div>
     </div>
     <div class="feat">
       <div class="feat__num">03</div>
       <div class="feat__body">
-        <div class="feat__title">Seuil configurable</div>
-        <div class="feat__desc">Le seuil de détection en ETH peut être ajusté, pour élargir ou resserrer ce qui déclenche une alerte dans le fil.</div>
+        <div class="feat__title">Geolocation</div>
+        <div class="feat__desc">The user sees their position on the map and instantly spots the stations closest to them.</div>
       </div>
     </div>
     <div class="feat">
       <div class="feat__num">04</div>
       <div class="feat__body">
-        <div class="feat__title">Vérification sur Etherscan</div>
-        <div class="feat__desc">Chaque transaction du fil renvoie vers sa fiche complète sur Etherscan, pour vérifier l'origine et la destination des fonds.</div>
+        <div class="feat__title">Alerts and notifications</div>
+        <div class="feat__desc">A dedicated tab centralizes notifications for followed stations, without needing to keep the app open continuously.</div>
       </div>
     </div>
   </div>
 </div>
 
 <div class="results">
-  <div class="results__header rev"><span class="section-tag">Résultats</span></div>
+  <div class="results__header rev"><span class="section-tag">Results</span></div>
   <div class="results__grid revs">
-    <div class="result"><span class="result__idx">01</span><div class="result__stat">3</div><div class="result__desc">paliers de sévérité automatiques</div></div>
-    <div class="result"><span class="result__idx">02</span><div class="result__stat">100 ETH</div><div class="result__desc">seuil de détection par défaut</div></div>
-    <div class="result"><span class="result__idx">03</span><div class="result__stat">0</div><div class="result__desc">latence perçue, poussé en direct par WebSocket</div></div>
-    <div class="result"><span class="result__idx">04</span><div class="result__stat">12s</div><div class="result__desc">fréquence de scan, un bloc Ethereum toutes les 12 secondes</div></div>
+    <div class="result"><span class="result__idx">01</span><div class="result__stat">100%</div><div class="result__desc">of Nantes' Bicloo stations covered</div></div>
+    <div class="result"><span class="result__idx">02</span><div class="result__stat">Real-time</div><div class="result__desc">bike and dock availability updated continuously</div></div>
+    <div class="result"><span class="result__idx">03</span><div class="result__stat">0</div><div class="result__desc">installation needed to try the demo</div></div>
+    <div class="result"><span class="result__idx">04</span><div class="result__stat">Android</div><div class="result__desc">platform demonstrated via Appetize</div></div>
   </div>
 </div>
 
 <div class="stack revs">
   <div>
-    <div class="stack__label">Stack technique</div>
+    <div class="stack__label">Tech stack</div>
     <div class="stack__tags">
-      <span class="stack__tag">Express</span><span class="stack__tag">Socket.IO</span>
-      <span class="stack__tag">React</span><span class="stack__tag">Vite</span>
-      <span class="stack__tag">Docker</span>
+      <span class="stack__tag">Kotlin</span><span class="stack__tag">Android</span>
+      <span class="stack__tag">REST API</span><span class="stack__tag">Geolocation</span>
     </div>
   </div>
   <div>
-    <div class="stack__label">Mon rôle</div>
+    <div class="stack__label">My role</div>
     <div class="role-items">
-      <div class="role-item">Scan des blocs et détection des transactions whale</div>
-      <div class="role-item">Diffusion temps réel via WebSocket</div>
-      <div class="role-item">Classification par paliers de sévérité</div>
-      <div class="role-item">Développement solo du projet</div>
+      <div class="role-item">Integration of the Bicloo real-time station API</div>
+      <div class="role-item">Development of the interactive map and geolocation</div>
+      <div class="role-item">Native Android development in Kotlin</div>
+      <div class="role-item">Solo development of the project</div>
     </div>
   </div>
 </div>
@@ -359,32 +359,32 @@ a{color:inherit;text-decoration:none}
   <div class="live__card">
     <div class="live__glow" aria-hidden="true"></div>
     <div class="live__content">
-      <div class="live__status"><span class="live__dot"></span>En ligne</div>
-      <h2 class="live__title">Whale Tracker est en ligne</h2>
-      <p class="live__desc">Le fil de transactions tourne en direct. Ouvre le tableau de bord pour voir les whales détectées en temps réel.</p>
+      <div class="live__status"><span class="live__dot"></span>Live demo</div>
+      <h2 class="live__title">Vélos à Nantes, testable online</h2>
+      <p class="live__desc">An interactive Android demo is available with no install, directly in the browser via Appetize.</p>
     </div>
-    <a href="https://whale-tracker-cyan.vercel.app/" target="_blank" rel="noopener noreferrer" class="live__btn">
-      <span>Ouvrir l'application</span>
+    <a href="https://appetize.io/app/b_e3tz2n6zdlfydgztuo5y6hmcei" target="_blank" rel="noopener noreferrer" class="live__btn">
+      <span>Launch the demo</span>
       <span class="live__btn-arrow"><svg class="arr-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
     </a>
   </div>
 </div>
 
 <div class="fnav">
-  <a href="case-04.html" class="fnav__link fnav__link--prev">
-    <span><span class="fnav__sub">Projet précédent</span><span class="fnav__name">← Vélos à Nantes</span></span>
+  <a href="case-03.html" class="fnav__link fnav__link--prev">
+    <span><span class="fnav__sub">Previous project</span><span class="fnav__name">← Remember</span></span>
   </a>
   <div class="fnav__logo"><span class="fnav__logo-icon"><svg width="13" height="13" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 6 L24 25 L20 25 L17.3 17.5 L14.7 17.5 L12 25 L8 25 Z" fill="#0f0f18"/></svg></span> <a href="index.html">Arnaud Clavier.</a></div>
-  <a href="case-06.html" class="fnav__link fnav__link--next">
-    <span><span class="fnav__sub">Projet suivant</span><span class="fnav__name">NutriLens →</span></span>
+  <a href="case-05.html" class="fnav__link fnav__link--next">
+    <span><span class="fnav__sub">Next project</span><span class="fnav__name">Whale Tracker →</span></span>
   </a>
 </div>
 
 <div class="lightbox" id="lightbox">
-  <button class="lightbox__close" id="lightboxClose" aria-label="Fermer">×</button>
-  <button class="lightbox__nav lightbox__nav--prev" id="lightboxPrev" aria-label="Image précédente">‹</button>
+  <button class="lightbox__close" id="lightboxClose" aria-label="Close">×</button>
+  <button class="lightbox__nav lightbox__nav--prev" id="lightboxPrev" aria-label="Previous image">‹</button>
   <img class="lightbox__img" id="lightboxImg" src="" alt="">
-  <button class="lightbox__nav lightbox__nav--next" id="lightboxNext" aria-label="Image suivante">›</button>
+  <button class="lightbox__nav lightbox__nav--next" id="lightboxNext" aria-label="Next image">›</button>
   <div class="lightbox__count" id="lightboxCount"></div>
 </div>
 
@@ -393,7 +393,7 @@ a{color:inherit;text-decoration:none}
   <p id="langBannerText"></p>
   <div class="lang-banner__actions">
     <a href="#" id="langBannerGo" class="lang-banner__go"></a>
-    <button type="button" id="langBannerClose" class="lang-banner__close" aria-label="Fermer">×</button>
+    <button type="button" id="langBannerClose" class="lang-banner__close" aria-label="Close">×</button>
   </div>
 </div>
 

@@ -217,6 +217,18 @@ a{color:inherit;text-decoration:none}
   .meta__cell:first-child{grid-column:auto}
   .result__stat{font-size:40px}
 }
+/* ── LANG SWITCH ── */
+.lang-banner{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:200;display:flex;align-items:center;gap:16px;background:var(--dark);color:#fff;padding:14px 20px;border-radius:14px;box-shadow:0 12px 32px rgba(0,0,0,.25);max-width:calc(100vw - 48px)}
+.lang-banner[hidden]{display:none}
+.lang-banner p{font-size:13px;font-weight:500;margin:0}
+.lang-banner__actions{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.lang-banner__go{font-size:13px;font-weight:700;color:var(--dark);background:var(--accent);padding:8px 14px;border-radius:100px;white-space:nowrap}
+.lang-banner__close{background:none;border:none;color:#fff;opacity:.6;font-size:18px;line-height:1;cursor:pointer;padding:4px}
+.lang-banner__close:hover{opacity:1}
+@media(max-width:640px){.lang-banner{flex-direction:column;align-items:stretch;text-align:center;left:16px;right:16px;transform:none;bottom:16px}}
+.topbar__right{display:flex;align-items:center;gap:16px}
+.topbar__lang{font-size:12px;font-weight:700;color:var(--ink4);padding:4px 12px;border:1px solid var(--border);border-radius:100px;transition:color .2s,border-color .2s}
+.topbar__lang:hover{color:var(--ink);border-color:var(--ink4)}
 </style>
 </head>
 <body>
@@ -227,7 +239,10 @@ a{color:inherit;text-decoration:none}
 <div class="topbar">
   <a href="index.html#projets" class="topbar__back"><span>←</span> Projets</a>
   <div class="topbar__label">Étude de cas</div>
-  <div class="topbar__pager"><strong>02</strong> / 06</div>
+  <div class="topbar__right">
+    <div class="topbar__pager"><strong>02</strong> / 06</div>
+    <a href="en/case-02.html" class="topbar__lang">EN</a>
+  </div>
 </div>
 
 <div class="hero">
@@ -441,6 +456,44 @@ window.addEventListener('scroll',()=>{
 },{passive:true});
 const ro=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('on');ro.unobserve(x.target);}});},{threshold:.06});
 document.querySelectorAll('.rev,.revs,.rev-l,.rev-r,.rev-s').forEach(el=>ro.observe(el));
+
+/* LANG SWITCH */
+(function(){
+  try{
+    var curLang=document.documentElement.lang;
+    var switchLink=document.querySelector('.nav__lang, .topbar__lang');
+    if(switchLink){
+      switchLink.addEventListener('click',function(){
+        try{localStorage.setItem('lang-pref',curLang==='fr'?'en':'fr')}catch(e){}
+      });
+    }
+    if(localStorage.getItem('lang-pref')) return;
+    var browserLang=(navigator.language||'').slice(0,2).toLowerCase();
+    if(browserLang===curLang || (browserLang!=='fr'&&browserLang!=='en') || !switchLink) return;
+    var banner=document.getElementById('langBanner');
+    var isFr=curLang==='fr';
+    document.getElementById('langBannerText').textContent=isFr
+      ? 'Il semble que votre navigateur soit configuré en anglais.'
+      : 'It looks like your browser is set to French.';
+    var go=document.getElementById('langBannerGo');
+    go.href=switchLink.href;
+    go.textContent=isFr ? 'View in English' : 'Voir en français';
+    go.addEventListener('click',function(){try{localStorage.setItem('lang-pref',browserLang)}catch(e){}});
+    document.getElementById('langBannerClose').addEventListener('click',function(){
+      banner.hidden=true;
+      try{localStorage.setItem('lang-pref',curLang)}catch(e){}
+    });
+    banner.hidden=false;
+  }catch(e){}
+})();
 </script>
+<!-- LANG BANNER -->
+<div class="lang-banner" id="langBanner" hidden>
+  <p id="langBannerText"></p>
+  <div class="lang-banner__actions">
+    <a href="#" id="langBannerGo" class="lang-banner__go"></a>
+    <button type="button" id="langBannerClose" class="lang-banner__close" aria-label="Fermer">×</button>
+  </div>
+</div>
 </body>
 </html>

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-<title>Whale Tracker · Étude de cas · Arnaud Clavier</title>
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<title>Whale Tracker · Case Study · Arnaud Clavier</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Newsreader:ital,opsz,wght@1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
@@ -236,108 +236,108 @@ a{color:inherit;text-decoration:none}
 <div class="cr" id="cr"></div>
 
 <div class="topbar">
-  <a href="index.html#projets" class="topbar__back"><span>←</span> Projets</a>
-  <div class="topbar__label">Étude de cas</div>
+  <a href="index.html#projets" class="topbar__back"><span>←</span> Projects</a>
+  <div class="topbar__label">Case study</div>
   <div class="topbar__right">
     <div class="topbar__pager"><strong>05</strong> / 06</div>
-    <a href="en/case-05.html" class="topbar__lang">EN</a>
+    <a href="../case-05.html" class="topbar__lang">FR</a>
   </div>
 </div>
 
 <div class="hero">
-  <div class="hero__type"><span class="hero__type-cat">Web</span><span class="hero__type-sep">/</span><span class="hero__type-plat">Temps réel</span></div>
+  <div class="hero__type"><span class="hero__type-cat">Web</span><span class="hero__type-sep">/</span><span class="hero__type-plat">Real-time</span></div>
   <div class="hero__title-row">
     <h1 class="hero__title hero__title--sm">Whale Tracker</h1>
     <span class="hero__logo-emoji" aria-hidden="true">🐋</span>
   </div>
-  <p class="hero__tagline">Un whale qui déplace plusieurs millions de dollars en ETH ne prévient personne. Whale Tracker surveille chaque bloc miné pour ne rien manquer, en direct.</p>
+  <p class="hero__tagline">A whale moving several million dollars in ETH doesn't warn anyone. Whale Tracker watches every mined block so nothing gets missed, live.</p>
 </div>
 
 <div class="meta revs">
-  <div class="meta__cell"><div class="meta__wm">01</div><div class="meta__label">Rôle</div><div class="meta__val">Développeur fullstack</div></div>
-  <div class="meta__cell"><div class="meta__wm">02</div><div class="meta__label">Statut</div><div class="meta__val">En ligne</div></div>
-  <div class="meta__cell"><div class="meta__wm">03</div><div class="meta__label">Plateforme</div><div class="meta__val">Web · Ethereum</div></div>
-  <div class="meta__cell"><div class="meta__wm">04</div><div class="meta__label">Équipe</div><div class="meta__val">Solo</div></div>
+  <div class="meta__cell"><div class="meta__wm">01</div><div class="meta__label">Role</div><div class="meta__val">Fullstack developer</div></div>
+  <div class="meta__cell"><div class="meta__wm">02</div><div class="meta__label">Status</div><div class="meta__val">Live</div></div>
+  <div class="meta__cell"><div class="meta__wm">03</div><div class="meta__label">Platform</div><div class="meta__val">Web · Ethereum</div></div>
+  <div class="meta__cell"><div class="meta__wm">04</div><div class="meta__label">Team</div><div class="meta__val">Solo</div></div>
 </div>
 
 <div class="plate-wrap rev-s">
   <div class="plate">
-    <img src="assets/covers/whaletracker/1.png" alt="Dashboard de Whale Tracker" loading="lazy">
+    <img src="../assets/covers/whaletracker/1.png" alt="Whale Tracker dashboard" loading="lazy">
   </div>
 </div>
 
 <div class="context rev-s">
-  <p class="context__text">La blockchain ne s'arrête jamais et ne prévient jamais non plus. <strong>Whale Tracker regarde chaque bloc pour repérer les mouvements qui comptent.</strong></p>
+  <p class="context__text">The blockchain never stops, and it never warns you either. <strong>Whale Tracker watches every block to catch the movements that matter.</strong></p>
 </div>
 
 <div class="challenge">
   <div class="challenge__col rev-l">
     <div class="challenge__num">01</div>
-    <div class="challenge__sub">Le défi</div>
-    <h2 class="challenge__h">Détecter l'anormal dans un flux continu</h2>
-    <p class="challenge__p">La blockchain Ethereum produit un nouveau bloc toutes les 12 secondes, avec des centaines de transactions à chaque fois. Repérer les mouvements de fonds significatifs au milieu de ce bruit, sans latence et sans surcharger le client, demande une architecture pensée pour le direct plutôt que pour l'interrogation périodique.</p>
+    <div class="challenge__sub">The challenge</div>
+    <h2 class="challenge__h">Detecting the abnormal in a continuous stream</h2>
+    <p class="challenge__p">The Ethereum blockchain produces a new block every 12 seconds, with hundreds of transactions each time. Spotting significant fund movements in the middle of that noise, without latency and without overloading the client, requires an architecture built for live data rather than periodic polling.</p>
   </div>
   <div class="challenge__col rev-r">
     <div class="challenge__num">02</div>
-    <div class="challenge__sub">L'approche</div>
-    <h2 class="challenge__h">Un flux WebSocket plutôt qu'un rafraîchissement périodique</h2>
-    <p class="challenge__p">Chaque nouveau bloc miné est scanné dès sa confirmation. Les transferts qui dépassent le seuil ETH configuré sont poussés instantanément à tous les clients connectés via WebSocket, sans polling ni rechargement de page.</p>
+    <div class="challenge__sub">The approach</div>
+    <h2 class="challenge__h">A WebSocket stream instead of periodic refreshing</h2>
+    <p class="challenge__p">Every newly mined block is scanned as soon as it's confirmed. Transfers that exceed the configured ETH threshold are pushed instantly to every connected client via WebSocket, with no polling or page reload.</p>
   </div>
 </div>
 
 <div class="gallery">
   <div class="gallery__grid">
-    <div class="gallery__plate rev-s"><img src="assets/covers/whaletracker/2.png" alt="Vérification d'une transaction sur Etherscan" loading="lazy"></div>
+    <div class="gallery__plate rev-s"><img src="../assets/covers/whaletracker/2.png" alt="Verifying a transaction on Etherscan" loading="lazy"></div>
   </div>
 </div>
 
 <div class="features">
-  <div class="features__header rev"><span class="section-tag">Fonctionnalités clés</span></div>
+  <div class="features__header rev"><span class="section-tag">Key features</span></div>
   <div class="features__list revs">
     <div class="feat">
       <div class="feat__num">01</div>
       <div class="feat__body">
-        <div class="feat__title">Flux temps réel par WebSocket</div>
-        <div class="feat__desc">Chaque transaction détectée apparaît instantanément dans le fil, sans rafraîchissement ni interrogation périodique du serveur.</div>
+        <div class="feat__title">Real-time feed over WebSocket</div>
+        <div class="feat__desc">Every detected transaction appears instantly in the feed, with no refresh or periodic polling of the server.</div>
       </div>
     </div>
     <div class="feat">
       <div class="feat__num">02</div>
       <div class="feat__body">
-        <div class="feat__title">Classification par sévérité</div>
-        <div class="feat__desc">Trois paliers automatiques selon la valeur en dollars : Whale (250k$ et plus), Big whale (1M$ et plus), Mega whale (10M$ et plus).</div>
+        <div class="feat__title">Severity classification</div>
+        <div class="feat__desc">Three automatic tiers based on dollar value: Whale ($250k and up), Big whale ($1M and up), Mega whale ($10M and up).</div>
       </div>
     </div>
     <div class="feat">
       <div class="feat__num">03</div>
       <div class="feat__body">
-        <div class="feat__title">Seuil configurable</div>
-        <div class="feat__desc">Le seuil de détection en ETH peut être ajusté, pour élargir ou resserrer ce qui déclenche une alerte dans le fil.</div>
+        <div class="feat__title">Configurable threshold</div>
+        <div class="feat__desc">The ETH detection threshold can be adjusted, to widen or narrow what triggers an alert in the feed.</div>
       </div>
     </div>
     <div class="feat">
       <div class="feat__num">04</div>
       <div class="feat__body">
-        <div class="feat__title">Vérification sur Etherscan</div>
-        <div class="feat__desc">Chaque transaction du fil renvoie vers sa fiche complète sur Etherscan, pour vérifier l'origine et la destination des fonds.</div>
+        <div class="feat__title">Verification on Etherscan</div>
+        <div class="feat__desc">Every transaction in the feed links back to its full record on Etherscan, to verify the origin and destination of the funds.</div>
       </div>
     </div>
   </div>
 </div>
 
 <div class="results">
-  <div class="results__header rev"><span class="section-tag">Résultats</span></div>
+  <div class="results__header rev"><span class="section-tag">Results</span></div>
   <div class="results__grid revs">
-    <div class="result"><span class="result__idx">01</span><div class="result__stat">3</div><div class="result__desc">paliers de sévérité automatiques</div></div>
-    <div class="result"><span class="result__idx">02</span><div class="result__stat">100 ETH</div><div class="result__desc">seuil de détection par défaut</div></div>
-    <div class="result"><span class="result__idx">03</span><div class="result__stat">0</div><div class="result__desc">latence perçue, poussé en direct par WebSocket</div></div>
-    <div class="result"><span class="result__idx">04</span><div class="result__stat">12s</div><div class="result__desc">fréquence de scan, un bloc Ethereum toutes les 12 secondes</div></div>
+    <div class="result"><span class="result__idx">01</span><div class="result__stat">3</div><div class="result__desc">automatic severity tiers</div></div>
+    <div class="result"><span class="result__idx">02</span><div class="result__stat">100 ETH</div><div class="result__desc">default detection threshold</div></div>
+    <div class="result"><span class="result__idx">03</span><div class="result__stat">0</div><div class="result__desc">perceived latency, pushed live over WebSocket</div></div>
+    <div class="result"><span class="result__idx">04</span><div class="result__stat">12s</div><div class="result__desc">scan frequency, one Ethereum block every 12 seconds</div></div>
   </div>
 </div>
 
 <div class="stack revs">
   <div>
-    <div class="stack__label">Stack technique</div>
+    <div class="stack__label">Tech stack</div>
     <div class="stack__tags">
       <span class="stack__tag">Express</span><span class="stack__tag">Socket.IO</span>
       <span class="stack__tag">React</span><span class="stack__tag">Vite</span>
@@ -345,12 +345,12 @@ a{color:inherit;text-decoration:none}
     </div>
   </div>
   <div>
-    <div class="stack__label">Mon rôle</div>
+    <div class="stack__label">My role</div>
     <div class="role-items">
-      <div class="role-item">Scan des blocs et détection des transactions whale</div>
-      <div class="role-item">Diffusion temps réel via WebSocket</div>
-      <div class="role-item">Classification par paliers de sévérité</div>
-      <div class="role-item">Développement solo du projet</div>
+      <div class="role-item">Block scanning and whale transaction detection</div>
+      <div class="role-item">Real-time broadcast via WebSocket</div>
+      <div class="role-item">Classification by severity tiers</div>
+      <div class="role-item">Solo development of the project</div>
     </div>
   </div>
 </div>
@@ -359,12 +359,12 @@ a{color:inherit;text-decoration:none}
   <div class="live__card">
     <div class="live__glow" aria-hidden="true"></div>
     <div class="live__content">
-      <div class="live__status"><span class="live__dot"></span>En ligne</div>
-      <h2 class="live__title">Whale Tracker est en ligne</h2>
-      <p class="live__desc">Le fil de transactions tourne en direct. Ouvre le tableau de bord pour voir les whales détectées en temps réel.</p>
+      <div class="live__status"><span class="live__dot"></span>Live</div>
+      <h2 class="live__title">Whale Tracker is live</h2>
+      <p class="live__desc">The transaction feed runs live. Open the dashboard to see whales detected in real time.</p>
     </div>
     <a href="https://whale-tracker-cyan.vercel.app/" target="_blank" rel="noopener noreferrer" class="live__btn">
-      <span>Ouvrir l'application</span>
+      <span>Open the app</span>
       <span class="live__btn-arrow"><svg class="arr-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
     </a>
   </div>
@@ -372,19 +372,19 @@ a{color:inherit;text-decoration:none}
 
 <div class="fnav">
   <a href="case-04.html" class="fnav__link fnav__link--prev">
-    <span><span class="fnav__sub">Projet précédent</span><span class="fnav__name">← Vélos à Nantes</span></span>
+    <span><span class="fnav__sub">Previous project</span><span class="fnav__name">← Vélos à Nantes</span></span>
   </a>
   <div class="fnav__logo"><span class="fnav__logo-icon"><svg width="13" height="13" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 6 L24 25 L20 25 L17.3 17.5 L14.7 17.5 L12 25 L8 25 Z" fill="#0f0f18"/></svg></span> <a href="index.html">Arnaud Clavier.</a></div>
   <a href="case-06.html" class="fnav__link fnav__link--next">
-    <span><span class="fnav__sub">Projet suivant</span><span class="fnav__name">NutriLens →</span></span>
+    <span><span class="fnav__sub">Next project</span><span class="fnav__name">NutriLens →</span></span>
   </a>
 </div>
 
 <div class="lightbox" id="lightbox">
-  <button class="lightbox__close" id="lightboxClose" aria-label="Fermer">×</button>
-  <button class="lightbox__nav lightbox__nav--prev" id="lightboxPrev" aria-label="Image précédente">‹</button>
+  <button class="lightbox__close" id="lightboxClose" aria-label="Close">×</button>
+  <button class="lightbox__nav lightbox__nav--prev" id="lightboxPrev" aria-label="Previous image">‹</button>
   <img class="lightbox__img" id="lightboxImg" src="" alt="">
-  <button class="lightbox__nav lightbox__nav--next" id="lightboxNext" aria-label="Image suivante">›</button>
+  <button class="lightbox__nav lightbox__nav--next" id="lightboxNext" aria-label="Next image">›</button>
   <div class="lightbox__count" id="lightboxCount"></div>
 </div>
 
@@ -393,7 +393,7 @@ a{color:inherit;text-decoration:none}
   <p id="langBannerText"></p>
   <div class="lang-banner__actions">
     <a href="#" id="langBannerGo" class="lang-banner__go"></a>
-    <button type="button" id="langBannerClose" class="lang-banner__close" aria-label="Fermer">×</button>
+    <button type="button" id="langBannerClose" class="lang-banner__close" aria-label="Close">×</button>
   </div>
 </div>
 

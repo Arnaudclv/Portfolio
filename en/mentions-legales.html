@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-<title>Mentions légales · Arnaud Clavier</title>
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<title>Legal Notice · Arnaud Clavier</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Newsreader:ital,opsz,wght@1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
@@ -25,19 +25,6 @@ a{color:inherit;text-decoration:none}
 .nav__back:hover{color:var(--ink);gap:14px}
 .nav__logo{font-size:13px;font-weight:800;color:var(--ink);display:inline-flex;align-items:center}
 .nav__logo em{font-style:normal;display:inline-flex;align-items:center;background:var(--accent);padding:4px 7px;border-radius:6px;margin-left:6px}
-.nav__right{display:flex;align-items:center;gap:18px}
-.nav__lang{font-size:12px;font-weight:700;color:var(--ink3);padding:5px 12px;border:1px solid var(--border);border-radius:100px;transition:color .2s,border-color .2s}
-.nav__lang:hover{color:var(--ink);border-color:var(--ink4)}
-
-/* ── LANG SWITCH ── */
-.lang-banner{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:200;display:flex;align-items:center;gap:16px;background:var(--dark);color:#fff;padding:14px 20px;border-radius:14px;box-shadow:0 12px 32px rgba(0,0,0,.25);max-width:calc(100vw - 48px)}
-.lang-banner[hidden]{display:none}
-.lang-banner p{font-size:13px;font-weight:500;margin:0}
-.lang-banner__actions{display:flex;align-items:center;gap:10px;flex-shrink:0}
-.lang-banner__go{font-size:13px;font-weight:700;color:var(--dark);background:var(--accent);padding:8px 14px;border-radius:100px;white-space:nowrap}
-.lang-banner__close{background:none;border:none;color:#fff;opacity:.6;font-size:18px;line-height:1;cursor:pointer;padding:4px}
-.lang-banner__close:hover{opacity:1}
-@media(max-width:640px){.lang-banner{flex-direction:column;align-items:stretch;text-align:center;left:16px;right:16px;transform:none;bottom:16px}}
 
 .hero-wrap{position:relative;overflow:hidden}
 .hero{max-width:var(--r);margin:0 auto;padding:80px 80px 64px}
@@ -71,6 +58,20 @@ a{color:inherit;text-decoration:none}
 .footer__link{font-size:12px;color:rgba(255,255,255,.3);transition:color .2s}
 .footer__link:hover{color:rgba(255,255,255,.7)}
 
+.nav__right{display:flex;align-items:center;gap:18px}
+.nav__lang{font-size:12px;font-weight:700;color:var(--ink3);padding:5px 12px;border:1px solid var(--border);border-radius:100px;transition:color .2s,border-color .2s}
+.nav__lang:hover{color:var(--ink);border-color:var(--ink4)}
+
+/* ── LANG SWITCH ── */
+.lang-banner{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:200;display:flex;align-items:center;gap:16px;background:var(--dark);color:#fff;padding:14px 20px;border-radius:14px;box-shadow:0 12px 32px rgba(0,0,0,.25);max-width:calc(100vw - 48px)}
+.lang-banner[hidden]{display:none}
+.lang-banner p{font-size:13px;font-weight:500;margin:0}
+.lang-banner__actions{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.lang-banner__go{font-size:13px;font-weight:700;color:var(--dark);background:var(--accent);padding:8px 14px;border-radius:100px;white-space:nowrap}
+.lang-banner__close{background:none;border:none;color:#fff;opacity:.6;font-size:18px;line-height:1;cursor:pointer;padding:4px}
+.lang-banner__close:hover{opacity:1}
+@media(max-width:640px){.lang-banner{flex-direction:column;align-items:stretch;text-align:center;left:16px;right:16px;transform:none;bottom:16px}}
+
 @media(max-width:768px){
   .nav{padding:0 24px}
   .hero{padding:48px 24px 40px}
@@ -88,9 +89,9 @@ a{color:inherit;text-decoration:none}
 <body>
 
 <nav class="nav">
-  <a href="index.html" class="nav__back">← Retour</a>
+  <a href="index.html" class="nav__back">← Back</a>
   <div class="nav__right">
-    <a href="en/mentions-legales.html" class="nav__lang">EN</a>
+    <a href="../mentions-legales.html" class="nav__lang">FR</a>
     <span class="nav__logo">Arnaud Clavier<em><svg width="12" height="12" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 6 L24 25 L20 25 L17.3 17.5 L14.7 17.5 L12 25 L8 25 Z" fill="#0f0f18"/></svg></em></span>
   </div>
 </nav>
@@ -98,8 +99,8 @@ a{color:inherit;text-decoration:none}
 <div class="hero-wrap">
   <div class="hero">
     <div class="hero__left">
-      <div class="hbadge"><span class="hbadge__a">Légal</span><span class="hbadge__b">Mentions · 2026</span></div>
-      <h1 class="hero__title">Mentions<em>légales.</em></h1>
+      <div class="hbadge"><span class="hbadge__a">Legal</span><span class="hbadge__b">Notice · 2026</span></div>
+      <h1 class="hero__title">Legal<em>notice.</em></h1>
     </div>
   </div>
   <div class="hero__deco"></div>
@@ -110,12 +111,12 @@ a{color:inherit;text-decoration:none}
   <div class="legal-row">
     <div class="legal-dot"></div>
     <div class="legal-content">
-      <h2>Éditeur</h2>
+      <h2>Publisher</h2>
       <div class="info-plate">
-        <div class="info-cell"><div class="info-cell__k">Nom</div><div class="info-cell__v">Arnaud Clavier</div></div>
-        <div class="info-cell"><div class="info-cell__k">Statut</div><div class="info-cell__v">Développeur indépendant</div></div>
+        <div class="info-cell"><div class="info-cell__k">Name</div><div class="info-cell__v">Arnaud Clavier</div></div>
+        <div class="info-cell"><div class="info-cell__k">Status</div><div class="info-cell__v">Independent developer</div></div>
         <div class="info-cell"><div class="info-cell__k">Contact</div><div class="info-cell__v">arnaud.clvpro@gmail.com</div></div>
-        <div class="info-cell"><div class="info-cell__k">Pays</div><div class="info-cell__v">France</div></div>
+        <div class="info-cell"><div class="info-cell__k">Country</div><div class="info-cell__v">France</div></div>
       </div>
     </div>
   </div>
@@ -123,25 +124,25 @@ a{color:inherit;text-decoration:none}
   <div class="legal-row">
     <div class="legal-dot"></div>
     <div class="legal-content">
-      <h2>Hébergement</h2>
-      <p class="legal-p">Site statique sans base de données ni serveur applicatif. Aucune donnée collectée côté serveur par l'éditeur.</p>
+      <h2>Hosting</h2>
+      <p class="legal-p">Static site with no database or application server. No data is collected server-side by the publisher.</p>
     </div>
   </div>
 
   <div class="legal-row">
     <div class="legal-dot"></div>
     <div class="legal-content">
-      <h2>Propriété intellectuelle</h2>
-      <p class="legal-p">Contenu, code et structure : propriété exclusive d'Arnaud Clavier sauf mention contraire. Reproduction interdite sans accord préalable écrit.</p>
-      <p class="legal-p">Les marques tierces (React, Flutter, etc.) appartiennent à leurs propriétaires respectifs.</p>
+      <h2>Intellectual property</h2>
+      <p class="legal-p">Content, code and structure are the exclusive property of Arnaud Clavier unless stated otherwise. Reproduction is prohibited without prior written consent.</p>
+      <p class="legal-p">Third-party trademarks (React, Flutter, etc.) belong to their respective owners.</p>
     </div>
   </div>
 
   <div class="legal-row">
     <div class="legal-dot"></div>
     <div class="legal-content">
-      <h2>Droit applicable</h2>
-      <p class="legal-p">Droit français. Juridiction compétente : tribunaux français.</p>
+      <h2>Governing law</h2>
+      <p class="legal-p">French law. Competent jurisdiction: French courts.</p>
     </div>
   </div>
 
@@ -150,8 +151,8 @@ a{color:inherit;text-decoration:none}
 <footer class="footer">
   <span class="footer__copy">© 2026 Arnaud Clavier</span>
   <div class="footer__links">
-    <a href="mentions-legales.html" class="footer__link">Mentions légales</a>
-    <a href="confidentialite.html" class="footer__link">Politique de confidentialité</a>
+    <a href="mentions-legales.html" class="footer__link">Legal Notice</a>
+    <a href="confidentialite.html" class="footer__link">Privacy Policy</a>
   </div>
 </footer>
 
@@ -160,7 +161,7 @@ a{color:inherit;text-decoration:none}
   <p id="langBannerText"></p>
   <div class="lang-banner__actions">
     <a href="#" id="langBannerGo" class="lang-banner__go"></a>
-    <button type="button" id="langBannerClose" class="lang-banner__close" aria-label="Fermer">×</button>
+    <button type="button" id="langBannerClose" class="lang-banner__close" aria-label="Close">×</button>
   </div>
 </div>
 
